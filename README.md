@@ -1,4 +1,5 @@
-1. Refactoring Classes
+<h1 align="center">Balloons Pop Documenation</h1>
+###1. Refactoring Classes
 	
 	1.1. Renaming Constructurs
 	
@@ -8,7 +9,7 @@
 	
 	1.4. Adding Validation
 	
-2. Refactoring Methods
+###2. Refactoring Methods
 	
 	2.1. Renaming Methods
 	
@@ -18,7 +19,7 @@
 	
 	2.4. Renaming Parameters
 	
-3. Refactoring Variables, Expressions, Constants, Control structures, Exceptions, Comments
+###3. Refactoring Variables, Expressions, Constants, Control structures, Exceptions, Comments
 	
 	3.1. Variables
 	
@@ -32,10 +33,10 @@
 	
 	3.6. Comments
 
-4. Add Interfaces
+###4. Add Interfaces
 
-5. Add Modules
+###5. Add Modules
 
-6. Implement design patterns
+###6. Implement design patterns
 
-7. Add new functionalities
+###7. Add new functionalities
