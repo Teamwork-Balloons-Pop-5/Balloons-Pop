@@ -40,3 +40,4 @@
 ###6. Implement design patterns
 
 ###7. Add new functionalities
+
