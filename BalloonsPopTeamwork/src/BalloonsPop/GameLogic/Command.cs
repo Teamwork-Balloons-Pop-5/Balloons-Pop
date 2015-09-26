@@ -1,13 +1,11 @@
-﻿namespace BalloonsPop.Console
+﻿namespace BalloonsPop.GameLogic
 {
     using System;
-    using System.Collections.Generic;
-    
+
     using Common.Constants;
-    using GameLogic;
     using BalloonsPop.Console.ConsoleUI;
 
-    public class StartPoint
+    public class Command
     {
         public static void ReadCommands(string temp, byte[,] matrix, int userMoves, string[,] topFive)
         {
@@ -20,7 +18,7 @@
                 switch (temp)
                 {
                     case "RESTART":
-                        ConsoleUI.ConsoleUI.PrintingMatrixOnConsole(matrix);
+                        ConsoleUI.PrintingMatrixOnConsole(matrix);
                         userMoves = 0;
                         break;
 
@@ -29,9 +27,9 @@
                         break;
 
                     default:
-                        if ((temp.Length == 3) && 
-                            (temp[0] >= '0' && temp[0] <= '9') && 
-                            (temp[2] >= '0' && temp[2] <= '9') && 
+                        if ((temp.Length == 3) &&
+                            (temp[0] >= '0' && temp[0] <= '9') &&
+                            (temp[2] >= '0' && temp[2] <= '9') &&
                             (temp[1] == ' ' || temp[1] == '.' || temp[1] == ','))
                         {
                             int userRow, userColumn;
@@ -45,7 +43,7 @@
 
                             userColumn = int.Parse(temp[2].ToString());
 
-                            if (Matrix.ChangeMatrix(matrix, userRow, userColumn))
+                            if (ChangeMatrix(matrix, userRow, userColumn))
                             {
                                 Console.WriteLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
                                 continue;
@@ -69,7 +67,7 @@
                                 userMoves = 0;
                             }
 
-                            ConsoleUI.ConsoleUI.PrintingMatrixOnConsole(matrix);
+                            ConsoleUI.PrintingMatrixOnConsole(matrix);
                             break;
                         }
                         else
@@ -82,21 +80,7 @@
 
             return;
         }
-        
-        public static void Main()
-        {
-            string[,] topFive = new string[5, 2];
-            byte[,] matrix = Generator.GenerateBalloons(5, 10);
 
-            ConsoleUI.ConsoleUI.PrintingMatrixOnConsole(matrix);
 
-            string temp = null;
-            int userMoves = 0;
-
-            ReadCommands(temp, matrix, userMoves, topFive);
-
-            Console.WriteLine(GlobalGameMessages.ExitGameMessage);
-        }
     }
 }
-

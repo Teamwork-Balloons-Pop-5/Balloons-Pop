@@ -52,9 +52,14 @@
     <Compile Include="Console\StartPoint.cs" />
     <Compile Include="Contracts\IEngine.cs" />
     <Compile Include="Engine\Engine.cs" />
+    <Compile Include="GameLogic\Chart.cs" />
+    <Compile Include="GameLogic\CheckCellInMatrix.cs" />
+    <Compile Include="GameLogic\Command.cs" />
     <Compile Include="GameLogic\GameLogic.cs" />
+    <Compile Include="GameLogic\Generator.cs" />
     <Compile Include="GameLogic\Highscore.cs" />
     <Compile Include="GameLogic\StringExtensions.cs" />
+    <Compile Include="GameLogic\Winner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
