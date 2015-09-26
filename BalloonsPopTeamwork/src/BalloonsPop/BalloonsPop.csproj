@@ -44,6 +44,8 @@
     <Compile Include="Common\Constants\GlobalErrorMessages.cs" />
     <Compile Include="Common\Constants\GlobalGameLogicDependencesValues.cs" />
     <Compile Include="Common\Constants\GlobalGameMessages.cs" />
+    <Compile Include="Common\Constants\PrintingMatrixGraphicalInterface.cs" />
+    <Compile Include="Common\Constants\TopFiveChartPrintingMessages.cs" />
     <Compile Include="Common\Exceptions\Exceptions.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Console\ConsoleUI\ConsoleUI.cs" />
@@ -51,7 +53,8 @@
     <Compile Include="Contracts\IEngine.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="GameLogic\GameLogic.cs" />
-    <Compile Include="GameLogic\Hightscore.cs" />
+    <Compile Include="GameLogic\Highscore.cs" />
+    <Compile Include="GameLogic\StringExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
