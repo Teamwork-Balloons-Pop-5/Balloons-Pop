@@ -39,7 +39,7 @@
 		- Ranamed temp to balloonsMatrix in Balloons.cs
 		- Renamed randNumber to randomNumber in Balloons.cs
 		- Renamed tempByte to numberToInsert in Balloons.cs
-		- Renamed stek to in CheckIfWinner method
+		- Renamed stek to columnValues in CheckIfWinner method
 	
 	3.2. Expressions
 	
