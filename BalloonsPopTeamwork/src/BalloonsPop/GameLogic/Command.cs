@@ -43,7 +43,7 @@
 
                             userColumn = int.Parse(temp[2].ToString());
 
-                            if (ChangeMatrix(matrix, userRow, userColumn))
+                            if (Matrix.ChangeMatrix(matrix, userRow, userColumn))
                             {
                                 Console.WriteLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
                                 continue;

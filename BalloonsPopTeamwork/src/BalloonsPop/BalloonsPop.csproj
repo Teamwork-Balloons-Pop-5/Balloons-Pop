@@ -58,6 +58,7 @@
     <Compile Include="GameLogic\GameLogic.cs" />
     <Compile Include="GameLogic\Generator.cs" />
     <Compile Include="GameLogic\Highscore.cs" />
+    <Compile Include="GameLogic\Matrix.cs" />
     <Compile Include="GameLogic\StringExtensions.cs" />
     <Compile Include="GameLogic\Winner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
