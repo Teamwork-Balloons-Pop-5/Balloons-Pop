@@ -51,6 +51,7 @@
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Console\ConsoleIO\ConsoleIOFacade.cs" />
     <Compile Include="Console\ConsoleIO\MessagePrinter.cs" />
+    <Compile Include="Console\ConsoleUI\Colors\BalloonColor.cs" />
     <Compile Include="Console\ConsoleUI\ConsoleUI.cs" />
     <Compile Include="Console\ConsoleUI\Menu\Menu.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\LargePlayfieldFactory.cs" />
@@ -74,9 +75,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Console\ConsoleUI\Colors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

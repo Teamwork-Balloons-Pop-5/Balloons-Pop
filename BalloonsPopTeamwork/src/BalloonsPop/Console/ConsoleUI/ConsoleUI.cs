@@ -2,35 +2,10 @@
 {
     using System;
 
+    using BalloonsPop.Console.ConsoleUI.Colors;
+
     public class ConsoleUI
     {
-        public static void SetColor(int currentBalloon)
-        {
-            switch (currentBalloon)
-            {
-                case 1:
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-                case 2:
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-                case 3:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-                case 4:
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
-                    break;
-            }
-        }
-
         public static void PrintingMatrixOnConsole(byte[,] matrix)
         {
             Console.ForegroundColor = ConsoleColor.White;
@@ -63,8 +38,7 @@
                     }
 
                     // Set balloon color
-
-                    SetColor(matrix[i, j]);
+                   BalloonColor.SetColor(matrix[i, j]);
                 }
 
                 Console.Write("| ");
