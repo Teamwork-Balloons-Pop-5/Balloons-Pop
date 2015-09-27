@@ -24,7 +24,7 @@
             CenterString(GameTitle.GameTitlePartFour);
             CenterString(GameTitle.GameTitlePartFive);
 
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             CenterString(GameTitle.GameTitlePartSix);
             CenterString(GameTitle.GameTitlePartSeven);
 
@@ -50,7 +50,7 @@
             CenterString(Aim);
             CenterString(How);
 
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             CenterString(chooseMode);
             Console.WriteLine("");
             Console.ForegroundColor = ConsoleColor.Green;
