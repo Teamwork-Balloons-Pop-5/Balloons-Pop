@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Common.Constants
 {
-    public class PrintingMatrixGraphicalInterface
+    public class MatrixGraphicalInterface
     {
         public const string MatrixHorizontalBorderSymbol = "-";
         public const string MatrixVerticalLeftBorderSymbol = "| ";
