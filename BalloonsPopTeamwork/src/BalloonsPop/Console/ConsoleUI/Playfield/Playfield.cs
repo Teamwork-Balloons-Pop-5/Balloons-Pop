@@ -84,7 +84,9 @@
             {
                 for (int col = 0; col < this.Width; col++)
                 {
-                    this.Field[row, col] = RandomGenerator.GetRandomInt();
+                    string digit = RandomGenerator.GetRandomInt();
+
+                    this.Field[row, col] = digit;
                 }
             }
         }
