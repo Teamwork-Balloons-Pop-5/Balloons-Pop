@@ -7,11 +7,14 @@
     using GameLogic;
     using Engine;
     using BalloonsPop.Console.ConsoleUI;
+    using BalloonsPop.Console.ConsoleUI.Menu;
 
     public class StartPoint
     {        
         public static void Main()
         {
+            Menu.InitializeMenu();
+
             string[,] topFive = new string[5, 2];
             byte[,] matrix = Generator.GenerateBalloons(5, 10);
 

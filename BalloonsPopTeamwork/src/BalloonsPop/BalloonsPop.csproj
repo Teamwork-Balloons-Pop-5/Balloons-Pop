@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Constants\GameTitle.cs" />
     <Compile Include="Common\Constants\GlobalErrorMessages.cs" />
     <Compile Include="Common\Constants\GlobalGameLogicDependencesValues.cs" />
     <Compile Include="Common\Constants\GlobalGameMessages.cs" />
