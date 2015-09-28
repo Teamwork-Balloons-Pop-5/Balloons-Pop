@@ -6,7 +6,11 @@
 
     public class Menu
     {
-        public static void PrintMenuHeader()
+        public Menu()
+        {
+        }
+
+        public void PrintMenuHeader()
         {
             Console.Clear();
 
@@ -34,7 +38,7 @@
             Console.ResetColor();
         }
 
-        public static void PrintMenuBody()
+        public void PrintMenuBody()
         {
             string WelcomeMessage = "Welcome to the game of Balloons Pop.";
             string Aim = "The aim of the game is to pop all balloons.";
@@ -67,7 +71,7 @@
             Console.ResetColor();
         }
 
-        public static void PrintMenuFooter()
+        public void PrintMenuFooter()
         {
             string gameModeString = string.Empty;
             int gameMode = 0;
@@ -127,22 +131,22 @@
             PrintMenuHeader();
         }
 
-        public static void CenterString(string text)
+        private void CenterString(string text)
         {
             Console.WriteLine(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
-        public static void CenterStringWrite(string text)
+        private void CenterStringWrite(string text)
         {
             Console.Write(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
-        public static void InitializeMenu()
+        public void InitializeMenu()
         {
-            Console.SetWindowSize(135, 43);
-            PrintMenuHeader();
-            PrintMenuBody();
-            PrintMenuFooter();
+            Console.SetWindowSize(135, 33);
+            this.PrintMenuHeader();
+            this.PrintMenuBody();
+            this.PrintMenuFooter();
         }
     }
 }

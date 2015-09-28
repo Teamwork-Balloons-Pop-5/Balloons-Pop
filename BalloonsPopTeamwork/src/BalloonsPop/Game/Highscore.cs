@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.GameLogic
+﻿namespace BalloonsPop.Game
 {
     using System;
 

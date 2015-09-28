@@ -6,11 +6,18 @@
     using BalloonsPop.Contracts;
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Console.ConsoleUI;
-    using BalloonsPop.GameLogic;
+    using BalloonsPop.Game;
+    using BalloonsPop.Console.ConsoleUI.Playfield;
+    using BalloonsPop.Game.Logic;
+    using BalloonsPop.Console.ConsoleIO;
 
     public sealed class Engine : IEngine
     {
         private static Engine engineInstance;
+        private Playfield playfield;
+        private PopStrategy popLogic;
+        private int balloonsLeft;
+        private int userMoves;
 
         private Engine()
         {
@@ -27,6 +34,49 @@
 
                 return engineInstance;
             }
+        }
+
+        public void Start()
+        {
+            var playfield = this.InitializePlayfield();
+        }
+
+        private Playfield InitializePlayfield()
+        {
+            int playfieldSize = ConsoleInput.ReadPlayfieldSize();
+            Playfield playfield = null;
+
+            bool isPlayfieldSizeIncorrect = true;
+
+            while (isPlayfieldSizeIncorrect)
+            {
+                PlayfieldFactory playfiledFactory = null;
+
+                switch (playfieldSize)
+                {
+                    case 1:
+                        playfiledFactory = new SmallPlayfieldFactory();
+                        playfield = playfiledFactory.CreatePlayfield();
+                        isPlayfieldSizeIncorrect = false;
+                        break;
+                    case 2:
+                        playfiledFactory = new MediumPlayfieldFactory();
+                        playfield = playfiledFactory.CreatePlayfield();
+                        isPlayfieldSizeIncorrect = false;
+                        break;
+                    case 3:
+                        playfiledFactory = new LargePlayfieldFactory();
+                        playfield = playfiledFactory.CreatePlayfield();
+                        isPlayfieldSizeIncorrect = false;
+                        break;
+                    default:
+                        // Extract to consoleIO
+                        Console.WriteLine("You have entered incorrect field size");
+                        break;
+                }
+            }
+
+            return playfield;
         }
 
         public void Run(string temp, byte[,] matrix, int userMoves, string[,] topFive)

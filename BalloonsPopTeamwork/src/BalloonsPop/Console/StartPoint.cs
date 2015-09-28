@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     
     using Common.Constants;
-    using GameLogic;
+    using Game;
     using Engine;
     using BalloonsPop.Console.ConsoleUI;
     using BalloonsPop.Console.ConsoleUI.Menu;
@@ -13,7 +13,9 @@
     {        
         public static void Main()
         {
-            Menu.InitializeMenu();
+            var menu = new Menu();
+
+            menu.InitializeMenu();
 
             string[,] topFive = new string[5, 2];
             byte[,] matrix = Generator.GenerateBalloons(5, 10);
