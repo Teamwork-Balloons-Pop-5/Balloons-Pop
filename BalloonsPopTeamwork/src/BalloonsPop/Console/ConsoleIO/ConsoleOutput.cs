@@ -1,34 +1,37 @@
-﻿using BalloonsPop.Common.Constants;
-namespace BalloonsPop.Console.ConsoleIO
+﻿namespace BalloonsPop.Console.ConsoleIO
 {
+    using BalloonsPop.Common.Constants;
+
     public class ConsoleOutput
     {
-        public static void PrintWelcomeMessage()
+        private MessagePrinter printer = new MessagePrinter();
+
+        public void PrintWelcomeMessage()
         {
-            MessagePrinter.PrintLine(GlobalGameMessages.WelcomeMessage);
+            printer.PrintLine(GlobalGameMessages.WelcomeMessage);
         }
 
-        public static void PrintInvalidInputMessage()
+        public void PrintInvalidInputMessage()
         {
-            MessagePrinter.PrintLine(GlobalGameMessages.WrongInputMessage);
+            printer.PrintLine(GlobalGameMessages.WrongInputMessage);
         }
 
-        public static void PrintExitMessage(int userMoves, int balloonsLeft)
+        public void PrintExitMessage(int userMoves, int balloonsLeft)
         {
-            MessagePrinter.PrintLine(GlobalGameMessages.ExitGameMessage);
-            MessagePrinter.PrintLine(userMoves.ToString());
-            MessagePrinter.PrintLine(balloonsLeft.ToString());
+            printer.PrintLine(GlobalGameMessages.ExitGameMessage);
+            printer.PrintLine(userMoves.ToString());
+            printer.PrintLine(balloonsLeft.ToString());
         }
 
-        public static void PrintInvalidMoveMessage()
+        public void PrintInvalidMoveMessage()
         {
-            MessagePrinter.PrintLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
+            printer.PrintLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
         }
 
-        public static void PrintWinMessage(int userMoves)
+        public void PrintWinMessage(int userMoves)
         {
             string message = string.Format(GlobalGameMessages.InTopFiveWinningMessage, userMoves);
-            MessagePrinter.PrintLine(message);
+            printer.PrintLine(message);
         }
     }
 }

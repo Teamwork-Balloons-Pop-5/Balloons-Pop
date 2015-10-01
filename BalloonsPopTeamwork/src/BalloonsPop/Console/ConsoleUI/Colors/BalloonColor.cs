@@ -4,31 +4,30 @@
 
     public class BalloonColor
     {
-        public static void SetColor(int currentBalloon)
+        public static void PaintBalloonField(int currentBalloon)
         {
             switch (currentBalloon)
             {
                 case 1:
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    SetColor(ConsoleColor.Green, currentBalloon, ConsoleColor.White);
                     break;
                 case 2:
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    SetColor(ConsoleColor.Blue, currentBalloon, ConsoleColor.White);
                     break;
                 case 3:
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    SetColor(ConsoleColor.Red, currentBalloon, ConsoleColor.White);
                     break;
                 case 4:
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.Write(currentBalloon + " ");
-                    Console.ForegroundColor = ConsoleColor.White;
+                    SetColor(ConsoleColor.Yellow, currentBalloon, ConsoleColor.White);
                     break;
             }
+        }
+
+        private static void SetColor(ConsoleColor balloonColor, int balloonDigit, ConsoleColor textColor)
+        {
+            Console.ForegroundColor = balloonColor;
+            Console.Write(balloonDigit + " ");
+            Console.ForegroundColor = textColor;
         }
     }
 }

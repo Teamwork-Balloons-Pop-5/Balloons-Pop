@@ -6,81 +6,72 @@
 
     public class Menu
     {
+        private const string GameModeEasy = "1. EASY";
+        private const string GameModeMedium = "2. MEDIUM";
+        private const string GameModeHard = "3. HARD";
+        private const string WelcomeGameMessage = "Welcome to the game of Balloons Pop.";
+        private const string AimOfGameMessage = "The aim of the game is to pop all balloons.";
+        private const string HowToPlayMessage = "To do this you enter balloon coordinates in a turn-by-turn basis.";
+        private const string ChooseGameModeMessage = "Please choose game mode";
+        private const string EmptyTextLine = "";
+        private const string borderTop = GameTitle.GameTitleBorder + EmptyTextLine;
+        private const string borderBottom = EmptyTextLine + GameTitle.GameTitleBorder;
+
+        private int gameMode;
+
         public Menu()
         {
         }
 
+        public int GameMode
+        {
+            get
+            {
+                return this.gameMode;
+            }
+        }
+
         public void PrintMenuHeader()
         {
-            Console.Clear();
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(GameTitle.GameTitleBorder + Environment.NewLine);
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            CenterString(GameTitle.GameTitlePartOne);
-
-            Console.ForegroundColor = ConsoleColor.Red;
-            CenterString(GameTitle.GameTitlePartTwo);
-            CenterString(GameTitle.GameTitlePartThree);
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            CenterString(GameTitle.GameTitlePartFour);
-            CenterString(GameTitle.GameTitlePartFive);
-
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            CenterString(GameTitle.GameTitlePartSix);
-            CenterString(GameTitle.GameTitlePartSeven);
-
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(Environment.NewLine + GameTitle.GameTitleBorder);
-
-            Console.ResetColor();
+            PrintGameText(ConsoleColor.White, borderTop);
+            PrintGameText(ConsoleColor.Yellow, GameTitle.GameTitlePartOne);
+            PrintGameText(ConsoleColor.Red, GameTitle.GameTitlePartTwo, GameTitle.GameTitlePartThree);
+            PrintGameText(ConsoleColor.Green, GameTitle.GameTitlePartFour, GameTitle.GameTitlePartFive);
+            PrintGameText(ConsoleColor.DarkBlue, GameTitle.GameTitlePartSix, GameTitle.GameTitlePartSeven);
+            PrintGameText(ConsoleColor.White, borderBottom);
         }
 
         public void PrintMenuBody()
         {
-            string WelcomeMessage = "Welcome to the game of Balloons Pop.";
-            string Aim = "The aim of the game is to pop all balloons.";
-            string How = "To do this you enter balloon coordinates in a turn-by-turn basis.\n";
-            string chooseMode = "Please choose game mode";
-            string Mode1 = "1. EASY";
-            string Mode2 = "2. MEDIUM";
-            string Mode3 = "3. HARD";
+            PrintGameText(ConsoleColor.White,
+                          WelcomeGameMessage, 
+                          AimOfGameMessage, 
+                          HowToPlayMessage,
+                          EmptyTextLine);
 
-            Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.White;
-            CenterString(WelcomeMessage);
-            CenterString(Aim);
-            CenterString(How);
+            PrintGameText(ConsoleColor.DarkBlue, ChooseGameModeMessage, EmptyTextLine);
 
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            CenterString(chooseMode);
-            Console.WriteLine("");
-            Console.ForegroundColor = ConsoleColor.Green;
-            CenterString(Mode1);
+            PrintGameText(ConsoleColor.Green, 
+                          GameModeEasy, 
+                          EmptyTextLine, 
+                          GameModeMedium, 
+                          EmptyTextLine, 
+                          GameModeHard, 
+                          EmptyTextLine);
 
-            Console.WriteLine("");
-            CenterString(Mode2);
-
-            Console.WriteLine("");
-            CenterString(Mode3);
-
-            Console.ForegroundColor = ConsoleColor.DarkBlue;
-            Console.WriteLine(Environment.NewLine + GameTitle.GameTitleBorder);
-            Console.ResetColor();
+            PrintGameText(ConsoleColor.White, borderBottom);
         }
 
         public void PrintMenuFooter()
         {
             string gameModeString = string.Empty;
-            int gameMode = 0;
             string error = string.Empty;
+            int gameMode = 0;
             bool validGameMode = false;
 
             do
             {
-                try // Asks for game mode until a valid choice is made 
+                try
                 {
                     do
                     {
@@ -104,21 +95,14 @@
                         else
                         {
                             validGameMode = true;
+                            this.gameMode = gameMode;
                         }
                     }
-                    while ((gameMode > 3) || (gameMode < 1)); // Selected game mode must be between 1 & 3 to be valid.
+                    while ((gameMode > 3) || (gameMode < 1)); 
                 }
-                catch (FormatException) // Catches FormatExceptions & loops until there's no exception.
+                catch (FormatException)
                 {
                     error = " Please enter a number in digit form (e.g. 3)";
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    CenterString(error);
-                    Console.ResetColor();
-                }
-                catch (OverflowException)
-                {
-                    error = " Please either choose game mode 1, 2, or 3. There are no hidden easter eggs here.";
 
                     Console.ForegroundColor = ConsoleColor.Red;
                     CenterString(error);
@@ -141,9 +125,19 @@
             Console.Write(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
-        public void InitializeMenu()
+        private void PrintGameText(ConsoleColor color, params string[] text)
         {
-            Console.SetWindowSize(135, 33);
+            Console.ForegroundColor = color;
+            
+            foreach (var textLine in text)
+            {
+                CenterString(textLine);
+            }
+        }
+
+        public void Load()
+        {
+            Console.SetWindowSize(135, 35);
             this.PrintMenuHeader();
             this.PrintMenuBody();
             this.PrintMenuFooter();

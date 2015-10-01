@@ -6,18 +6,20 @@
 
     public class ConsoleInput
     {
-        public static string ReadInput()
+        private MessagePrinter printer = new MessagePrinter();
+
+        public string ReadInput()
         {
-            MessagePrinter.Print(GlobalGameMessages.AskingToEnterRowAndColumnMessage);
+            printer.Print(GlobalGameMessages.AskingToEnterRowAndColumnMessage);
 
             string userInput = Console.ReadLine();
 
             return userInput;
         }
 
-        public static string ReadUserName()
+        public string ReadUserName()
         {
-            MessagePrinter.Print(GlobalGameMessages.AskingForUserNameMessage);
+            printer.Print(GlobalGameMessages.AskingForUserNameMessage);
 
             string userName = Console.ReadLine();
 

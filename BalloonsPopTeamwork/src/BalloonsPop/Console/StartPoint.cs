@@ -14,8 +14,7 @@
         public static void Main()
         {
             var menu = new Menu();
-
-            menu.InitializeMenu();
+            menu.Load();
 
             string[,] topFive = new string[5, 2];
             byte[,] matrix = Generator.GenerateBalloons(5, 10);

@@ -51,7 +51,6 @@
     <Compile Include="Common\Generator\RandomGenerator.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Console\ConsoleIO\ConsoleInput.cs" />
-    <Compile Include="Console\ConsoleIO\ConsoleIOFacade.cs" />
     <Compile Include="Console\ConsoleIO\ConsoleOutput.cs" />
     <Compile Include="Console\ConsoleIO\MessagePrinter.cs" />
     <Compile Include="Console\ConsoleUI\Colors\BalloonColor.cs" />
