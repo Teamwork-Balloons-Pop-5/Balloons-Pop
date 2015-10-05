@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-
     using Common.Constants;
 
     public class Chart
@@ -11,7 +10,7 @@
         {
             List<Highscore> highScoreChart = new List<Highscore>();
 
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < Common.Constants.GlobalGameLogicDependencesValues.TOPCHARTLENGHT; ++i)
             {
                 if (tableToSort[i, 0] == null)
                 {
@@ -23,15 +22,15 @@
 
             highScoreChart.Sort();
 
-            Console.WriteLine(TopFiveChartPrintingMessages.TopFiveChartTitle);
+            Console.WriteLine(TopChartPrintingMessages.TopChartTitle);
 
             for (int i = 0; i < highScoreChart.Count; ++i)
             {
                 Highscore slot = highScoreChart[i];
-                Console.WriteLine(TopFiveChartPrintingMessages.TopFivePlayerStringFormat, slot.Name, slot.Value, i + 1);
+                Console.WriteLine(TopChartPrintingMessages.TopPlayerStringFormat, slot.Name, slot.Value, i + 1);
             }
 
-            Console.WriteLine(TopFiveChartPrintingMessages.RowOfSymbols);
+            Console.WriteLine(TopChartPrintingMessages.RowOfSymbols);
         }
     }
 }
