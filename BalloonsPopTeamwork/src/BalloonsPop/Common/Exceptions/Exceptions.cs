@@ -1,6 +1,8 @@
 ﻿namespace BalloonsPop.Common.Exceptions
 {
-    public class Exceptions
+    using System;
+
+    public class Exceptions : Exception
     {
         // Need to implement our own exceptions
     }

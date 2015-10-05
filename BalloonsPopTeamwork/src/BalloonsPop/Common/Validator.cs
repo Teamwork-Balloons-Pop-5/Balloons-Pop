@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Common
 {
-    public class Validator
+    public static class Validator
     {
         // Need to create global methods - validators
     }

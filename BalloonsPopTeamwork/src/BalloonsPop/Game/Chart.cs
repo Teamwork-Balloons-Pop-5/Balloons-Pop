@@ -9,7 +9,7 @@
     {
         public static void SortAndPrintChartFive(string[,] tableToSort)
         {
-            List<Highscore> klasirane = new List<Highscore>();
+            List<Highscore> highScoreChart = new List<Highscore>();
 
             for (int i = 0; i < 5; ++i)
             {
@@ -18,16 +18,16 @@
                     break;
                 }
 
-                klasirane.Add(new Highscore(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
+                highScoreChart.Add(new Highscore(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
             }
 
-            klasirane.Sort();
+            highScoreChart.Sort();
 
             Console.WriteLine(TopFiveChartPrintingMessages.TopFiveChartTitle);
 
-            for (int i = 0; i < klasirane.Count; ++i)
+            for (int i = 0; i < highScoreChart.Count; ++i)
             {
-                Highscore slot = klasirane[i];
+                Highscore slot = highScoreChart[i];
                 Console.WriteLine(TopFiveChartPrintingMessages.TopFivePlayerStringFormat, slot.Name, slot.Value, i + 1);
             }
 
