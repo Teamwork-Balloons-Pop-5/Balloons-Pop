@@ -1,12 +1,10 @@
 ﻿namespace BalloonsPop.Console
 {
     using System;
-    using System.Collections.Generic;
     
     using Common.Constants;
     using Game;
     using Engine;
-    using BalloonsPop.Console.ConsoleUI;
     using BalloonsPop.Console.ConsoleUI.Menu;
 
     public class StartPoint
