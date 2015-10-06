@@ -2,36 +2,35 @@
 {
     using System;
     using System.Collections.Generic;
-
     using Common.Constants;
 
     public class Chart
     {
         public static void SortAndPrintChartFive(string[,] tableToSort)
         {
-            List<Highscore> klasirane = new List<Highscore>();
+            List<Highscore> highScoreChart = new List<Highscore>();
 
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < Common.Constants.GlobalGameLogicDependencesValues.TOPCHARTLENGHT; ++i)
             {
                 if (tableToSort[i, 0] == null)
                 {
                     break;
                 }
 
-                klasirane.Add(new Highscore(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
+                highScoreChart.Add(new Highscore(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
             }
 
-            klasirane.Sort();
+            highScoreChart.Sort();
 
-            Console.WriteLine(TopFiveChartPrintingMessages.TopFiveChartTitle);
+            Console.WriteLine(TopChartPrintingMessages.TopChartTitle);
 
-            for (int i = 0; i < klasirane.Count; ++i)
+            for (int i = 0; i < highScoreChart.Count; ++i)
             {
-                Highscore slot = klasirane[i];
-                Console.WriteLine(TopFiveChartPrintingMessages.TopFivePlayerStringFormat, slot.Name, slot.Value, i + 1);
+                Highscore slot = highScoreChart[i];
+                Console.WriteLine(TopChartPrintingMessages.TopPlayerStringFormat, slot.Name, slot.Value, i + 1);
             }
 
-            Console.WriteLine(TopFiveChartPrintingMessages.RowOfSymbols);
+            Console.WriteLine(TopChartPrintingMessages.RowOfSymbols);
         }
     }
 }
