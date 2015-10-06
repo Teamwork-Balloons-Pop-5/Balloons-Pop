@@ -1,16 +1,17 @@
 ﻿namespace BalloonsPop.Game.Logic
 {
     using System;
-
+    using BalloonsPop.Common;
+    using BalloonsPop.Common.Exceptions;
     using BalloonsPop.Console.ConsoleUI.Playfield;
 
     public class RecursivePopStrategy : PopStrategy
     {
         public override int PopBaloons(int row, int col, Playfield playfield)
         {
-            if (playfield == null)
+            if (Validator.IsNull(playfield))
             {
-                throw new ArgumentNullException("playfield", "Playfield can't be null.");
+                throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Height"));
             }
 
             bool isRowValid = row >= 0 && row < playfield.Height;

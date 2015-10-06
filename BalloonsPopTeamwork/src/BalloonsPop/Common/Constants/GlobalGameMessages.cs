@@ -10,5 +10,6 @@
         public const string NotInTopFiveWinningMessage = "You need to complete the game in less moves to enter the Top Chart. Better luck next time!";
         public const string ExitGameMessage = "Good Bye!";
         public const string AskingForUserNameMessage = "Please enter your name for the Top Chart: ";
+        public const string UserNameLenghtMessage = "User name need to be between {0} and {1} characters";
     }
 }

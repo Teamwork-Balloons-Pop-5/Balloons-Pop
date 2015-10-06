@@ -1,7 +1,8 @@
 ﻿namespace BalloonsPop.Console.ConsoleUI.Playfield
 {
-    using System;
-
+    using System;   
+    using BalloonsPop.Common;
+    using BalloonsPop.Common.Exceptions;
     using BalloonsPop.Common.Generator;
 
     public class Playfield
@@ -33,9 +34,13 @@
 
             private set
             {
-                if (value <= 0)
+                if(Validator.IsNull(value))
                 {
-                    throw new ArgumentOutOfRangeException("Playfield height can not be negative number.");
+                    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Height"));
+                }
+                if (Validator.IsPositiveInteger(value))
+                {
+                    throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "Playfield.Height"));
                 }
 
                 this.height = value;
@@ -51,9 +56,13 @@
 
             private set
             {
-                if (value <= 0)
+                if (Validator.IsNull(value))
                 {
-                    throw new ArgumentOutOfRangeException("Playfield width can not be negative number.");
+                    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Width"));
+                }
+                if (Validator.IsPositiveInteger(value))
+                {
+                    throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "Playfield.Width"));
                 }
 
                 this.width = value;
@@ -69,9 +78,9 @@
 
             private set
             {
-                if (value == null)
+                if (Validator.IsNull(value))
                 {
-                    throw new ArgumentNullException("Playfield can not be null.");
+                    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield"));
                 }
 
                 this.field = value;

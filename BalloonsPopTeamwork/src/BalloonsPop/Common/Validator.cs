@@ -1,31 +1,49 @@
 ﻿namespace BalloonsPop.Common
 {
     using System;
+    using BalloonsPop.Common.Exceptions;
 
     public static class Validator
     {
-        public static void ValidateIsNotNull(object argument, string argumentName = Constants.GlobalErrorMessages.ArgumentName)
+        public static bool IsNull(object argument)
         {
-            if (argument == null)
+            if(argument == null)
             {
-                throw new ArgumentNullException(argumentName, string.Format(Constants.GlobalErrorMessages.CannotBeNullFormat, argumentName));
+                return true;
             }
+
+            return false;
         }
 
-        public static void ValidateIsPositiveInteger(int argument, string paramName)
+        public static bool IsPositiveInteger(int argument)
         {
             if (argument <= 0)
             {
-                throw new ArgumentOutOfRangeException(paramName, paramName + Constants.GlobalErrorMessages.MustBeAPositiveInteger);
+                return true;
             }
+
+            return false;
+           
         }
 
-        public static void ValidateIsEqualOrGreaterThan(int argument, int number, string paramName)
+        public static bool ValidateIntIsEqualOrGreaterThan(int argument, int number)
         {
             if (argument < number)
             {
-                throw new ArgumentOutOfRangeException(paramName, string.Format(Constants.GlobalErrorMessages.MustBeEqualOrGreaterThanFormat, paramName, number));
+                return true;
             }
+
+            return false;
+        }
+
+        public static bool IsStringLenghtValid(string argument, int minLenght, int maxLenght)
+        {
+            if (argument.Length < minLenght || argument.Length > maxLenght)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

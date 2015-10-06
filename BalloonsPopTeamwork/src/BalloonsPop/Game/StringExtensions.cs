@@ -1,6 +1,7 @@
 ﻿namespace BalloonsPop.Game
 {
     using System;
+    using BalloonsPop.Console.ConsoleIO;
 
     public static class StringExtensions
     {
@@ -15,7 +16,7 @@
                 if (chart[i, 0] == null)
                 {
                     Console.WriteLine("Type in your name.");
-                    string tempUserName = Console.ReadLine();
+                    string tempUserName = new ConsoleInput().ReadUserName();
                     chart[i, 0] = points.ToString();
                     chart[i, 1] = tempUserName;
                     skilled = true;

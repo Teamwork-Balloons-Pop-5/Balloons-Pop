@@ -46,7 +46,7 @@
     <Compile Include="Common\Constants\GlobalGameLogicDependencesValues.cs" />
     <Compile Include="Common\Constants\GlobalGameMessages.cs" />
     <Compile Include="Common\Constants\MatrixGraphicalInterface.cs" />
-    <Compile Include="Common\Constants\TopFiveChartPrintingMessages.cs" />
+    <Compile Include="Common\Constants\TopChartPrintingMessages.cs" />
     <Compile Include="Common\Exceptions\Exceptions.cs" />
     <Compile Include="Common\Generator\RandomGenerator.cs" />
     <Compile Include="Common\Validator.cs" />

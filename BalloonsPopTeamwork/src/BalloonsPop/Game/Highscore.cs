@@ -1,6 +1,8 @@
 ﻿namespace BalloonsPop.Game
 {
     using System;
+    using BalloonsPop.Common;
+    using BalloonsPop.Common.Exceptions;
 
     public class Highscore : IComparable<Highscore>
     {
@@ -22,6 +24,10 @@
 
             set
             {
+                if (Validator.IsPositiveInteger(value))
+                {
+                    throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "HighScore.Value"));
+                }
                 this.value = value;
             }
         }
@@ -35,7 +41,12 @@
 
             set
             {
-                this.name = value;
+                if (Validator.IsStringLenghtValid(value, Common.Constants.GlobalGameLogicDependencesValues.MINUSERNAMELENGHT, Common.Constants.GlobalGameLogicDependencesValues.MAXUSERNAMELENGHT))
+                {
+                   throw new NotValidLenghtStringException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.StringMustBeOfLenght, Common.Constants.GlobalGameLogicDependencesValues.MINUSERNAMELENGHT, Common.Constants.GlobalGameLogicDependencesValues.MAXUSERNAMELENGHT));
+                }
+
+                this.name = value;               
             }
         }
 

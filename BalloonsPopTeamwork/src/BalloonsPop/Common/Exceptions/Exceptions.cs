@@ -2,8 +2,39 @@
 {
     using System;
 
-    public class Exceptions : Exception
+    public class NotValidLenghtStringException : Exception
     {
-        // Need to implement our own exceptions
+        public NotValidLenghtStringException(string message)
+            :base(message)
+        {
+            
+        }
+    }
+
+    public class CannotBeNullException : Exception
+    {
+        public CannotBeNullException(string message)
+            : base(message)
+        {
+
+        }
+    }
+
+    public class NotPositiveIntegerException : Exception
+    {
+        public NotPositiveIntegerException(string message)
+            : base(message)
+        {
+
+        }
+    }
+
+    public class IntNotEqualOrGreaterThan : Exception
+    {
+        public IntNotEqualOrGreaterThan(string message)
+            : base(message)
+        {
+
+        }
     }
 }
