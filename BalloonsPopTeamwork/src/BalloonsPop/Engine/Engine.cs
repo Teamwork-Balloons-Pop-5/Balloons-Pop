@@ -95,7 +95,7 @@
                         break;
 
                     case "TOP":
-                        Chart.SortAndPrintChartFive(topFive);
+                        Chart.SortAndPrintChartFive(userMoves);
                         break;
 
                     default:
@@ -126,14 +126,7 @@
                             if (Winner.CheckIfWinner(matrix))
                             {
                                 Console.WriteLine(GlobalGameMessages.InTopFiveWinningMessage, userMoves);
-                                if (topFive.SignIfSkilled(userMoves))
-                                {
-                                    Chart.SortAndPrintChartFive(topFive);
-                                }
-                                else
-                                {
-                                    Console.WriteLine(GlobalGameMessages.NotInTopFiveWinningMessage);
-                                }
+                                Chart.SortAndPrintChartFive(userMoves);
 
                                 matrix = Generator.GenerateBalloons(5, 10);
                                 userMoves = 0;

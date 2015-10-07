@@ -3,38 +3,16 @@
     using System;
     using System.Collections.Generic;
     using Common.Constants;
+    using BalloonsPop.Console.ConsoleIO;
 
     public class Chart
     {
-        public static void SortAndPrintChartFive(string[,] tableToSort)
+        public static void SortAndPrintChartFive(int spentMoves)
         {
-            /*
-            List<Highscore> highScoreChart = new List<Highscore>();
-
-            for (int i = 0; i < Common.Constants.GlobalGameLogicDependencesValues.TOPCHARTLENGHT; ++i)
-            {
-                if (tableToSort[i, 0] == null)
-                {
-                    break;
-                }
-
-                highScoreChart.Add(new Highscore(int.Parse(tableToSort[i, 0]), tableToSort[i, 1]));
-            }
-
-            highScoreChart.Sort();
-
-            Console.WriteLine(TopChartPrintingMessages.TopChartTitle);
-
-            for (int i = 0; i < highScoreChart.Count; ++i)
-            {
-                Highscore slot = highScoreChart[i];
-                Console.WriteLine(TopChartPrintingMessages.TopPlayerStringFormat, slot.Name, slot.Value, i + 1);
-            }
-
-            Console.WriteLine(TopChartPrintingMessages.RowOfSymbols);
-             * */
             //To do: get current score
-            var currentScore = new Highscore("hardcoded score", 1); // get current score
+            var ConsoleInut = new ConsoleInput();
+            var userName = ConsoleInut.ReadUserName();
+            var currentScore = new Highscore(userName, spentMoves); // get current score
             var scores = GetHighScoresFromFile(); //read from file
             var results = new List<Highscore>();
             foreach (var item in scores)
@@ -59,7 +37,7 @@
 
         private static Highscore ScoreParser(string scoreText)
         {
-            string[] temp = scoreText.Split('-');
+            string[] temp = scoreText.Split('\t');
             return new Highscore(temp[0], int.Parse(temp[1]));
         }
 
