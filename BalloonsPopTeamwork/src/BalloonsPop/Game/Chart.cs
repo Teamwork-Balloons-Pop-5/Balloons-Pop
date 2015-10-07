@@ -34,7 +34,7 @@
             Console.WriteLine(TopChartPrintingMessages.RowOfSymbols);
              * */
             //To do: get current score
-            var currentScore = new Highscore("hardcoded score", 0); // get current score
+            var currentScore = new Highscore("hardcoded score", 1); // get current score
             var scores = GetHighScoresFromFile(); //read from file
             var results = new List<Highscore>();
             foreach (var item in scores)

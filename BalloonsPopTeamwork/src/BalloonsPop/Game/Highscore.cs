@@ -55,7 +55,7 @@
             return this.Value.CompareTo(other.Value);
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return this.Name + "-" + this.Value.ToString();
         }

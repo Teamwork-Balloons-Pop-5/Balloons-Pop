@@ -9,10 +9,10 @@
         {
             if(argument == null)
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         public static bool IsPositiveInteger(int argument)
@@ -30,10 +30,10 @@
         {
             if (argument < number)
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         public static bool IsStringLenghtValid(string argument, int minLenght, int maxLenght)
