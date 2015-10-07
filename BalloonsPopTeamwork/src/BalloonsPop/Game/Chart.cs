@@ -53,7 +53,7 @@
 
         private static IEnumerable<string> GetHighScoresFromFile()
         {
-            string[] scores = System.IO.File.ReadAllLines("HighScore.txt");
+            string[] scores = System.IO.File.ReadAllLines("../../Game/HighScore.txt");
             return scores;
         }
 
@@ -73,7 +73,7 @@
                 Console.WriteLine(item.ToString());
             }
 
-            System.IO.File.WriteAllLines("HighScore.txt", output.ToArray());
+            System.IO.File.WriteAllLines("../../Game/HighScore.txt", output.ToArray());
         }
     }
 }

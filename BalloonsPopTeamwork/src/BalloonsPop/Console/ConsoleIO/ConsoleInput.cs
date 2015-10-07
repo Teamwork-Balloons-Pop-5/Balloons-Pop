@@ -24,9 +24,9 @@
             
             string userName = Console.ReadLine();
 
-            var isCorrectect = Validator.IsStringLenghtValid(userName, Common.Constants.GlobalGameLogicDependencesValues.MINUSERNAMELENGHT, Common.Constants.GlobalGameLogicDependencesValues.MAXUSERNAMELENGHT);
+            var isCorrect = Validator.IsStringLenghtValid(userName, Common.Constants.GlobalGameLogicDependencesValues.MINUSERNAMELENGHT, Common.Constants.GlobalGameLogicDependencesValues.MAXUSERNAMELENGHT);
 
-            while (!isCorrectect)
+            while (isCorrect)
             {
                 printer.Print(string.Format(GlobalGameMessages.UserNameLenghtMessage, Common.Constants.GlobalGameLogicDependencesValues.MINUSERNAMELENGHT, Common.Constants.GlobalGameLogicDependencesValues.MAXUSERNAMELENGHT));
                 printer.Print(GlobalGameMessages.AskingForUserNameMessage);
