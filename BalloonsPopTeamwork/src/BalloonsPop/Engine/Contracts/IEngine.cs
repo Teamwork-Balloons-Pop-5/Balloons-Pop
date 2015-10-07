@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Contracts
+﻿namespace BalloonsPop.Engine.Contracts
 {
     public interface IEngine
     {

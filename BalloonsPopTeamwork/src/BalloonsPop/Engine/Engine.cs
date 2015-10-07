@@ -3,7 +3,7 @@
     using System;
     using System.Collections.Generic;
 
-    using BalloonsPop.Contracts;
+    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Console.ConsoleUI;
     using BalloonsPop.Game;

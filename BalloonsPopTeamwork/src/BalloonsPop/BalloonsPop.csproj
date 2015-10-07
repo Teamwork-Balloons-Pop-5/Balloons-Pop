@@ -47,6 +47,10 @@
     <Compile Include="Common\Constants\GlobalGameMessages.cs" />
     <Compile Include="Common\Constants\MatrixGraphicalInterface.cs" />
     <Compile Include="Common\Constants\TopChartPrintingMessages.cs" />
+    <Compile Include="Common\Enum\BalloonType.cs" />
+    <Compile Include="Common\Enum\CommandType.cs" />
+    <Compile Include="Common\Enum\GameDifficulty.cs" />
+    <Compile Include="Common\Enum\ShootingDirection.cs" />
     <Compile Include="Common\Exceptions\Exceptions.cs" />
     <Compile Include="Common\Generator\RandomGenerator.cs" />
     <Compile Include="Common\Validator.cs" />
@@ -62,7 +66,7 @@
     <Compile Include="Console\ConsoleUI\Playfield\PlayfieldFactory.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\SmallPlayfieldFactory.cs" />
     <Compile Include="Console\StartPoint.cs" />
-    <Compile Include="Contracts\IEngine.cs" />
+    <Compile Include="Engine\Contracts\IEngine.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Game\Chart.cs" />
     <Compile Include="Game\CheckCellInMatrix.cs" />
@@ -79,11 +83,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Game\HighScore.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
