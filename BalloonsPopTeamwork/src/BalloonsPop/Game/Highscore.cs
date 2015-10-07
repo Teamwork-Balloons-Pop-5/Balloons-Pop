@@ -9,7 +9,7 @@
         private int value;
         private string name;
 
-        public Highscore(int value, string name)
+        public Highscore(string name, int value)
         {
             this.Value = value;
             this.Name = name;
@@ -53,6 +53,11 @@
         public int CompareTo(Highscore other)
         {
             return this.Value.CompareTo(other.Value);
+        }
+
+        public string ToString()
+        {
+            return this.Name + "-" + this.Value.ToString();
         }
     }
 }

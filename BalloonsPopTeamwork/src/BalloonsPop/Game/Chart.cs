@@ -33,16 +33,16 @@
 
             Console.WriteLine(TopChartPrintingMessages.RowOfSymbols);
              * */
-            //To do: get currnet score
-            var currentScore = new Score("hardcoded score", 0); // get current score
+            //To do: get current score
+            var currentScore = new Highscore("hardcoded score", 0); // get current score
             var scores = GetHighScoresFromFile(); //read from file
-            var results = new List<Score>();
+            var results = new List<Highscore>();
             foreach (var item in scores)
             {
                 results.Add(ScoreParser(item));
             } // add old highscores
             results.Add(currentScore); //add current score to highscores
-            results.Sort((x1, x2) => x1.Points.CompareTo(x2.Points)); //sort score
+            results.Sort((x1, x2) => x1.Value.CompareTo(x2.Value)); //sort score
 
             if (results.Count == Common.Constants.GlobalGameLogicDependencesValues.TOPCHARTLENGHT + 1)
             {
@@ -57,13 +57,13 @@
             return scores;
         }
 
-        private static Score ScoreParser(string scoreText)
+        private static Highscore ScoreParser(string scoreText)
         {
             string[] temp = scoreText.Split('-');
-            return new Score(temp[0], int.Parse(temp[1]));
+            return new Highscore(temp[0], int.Parse(temp[1]));
         }
 
-        private static void SaveToFile(List<Score> tempScore)
+        private static void SaveToFile(List<Highscore> tempScore)
         {
             List<string> output = new List<string>();
 
