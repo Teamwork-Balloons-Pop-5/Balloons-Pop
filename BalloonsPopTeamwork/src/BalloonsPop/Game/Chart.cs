@@ -22,9 +22,9 @@
             results.Add(currentScore); //add current score to highscores
             results.Sort((x1, x2) => x1.Value.CompareTo(x2.Value)); //sort score
 
-            if (results.Count == Common.Constants.GlobalGameLogicDependencesValues.TOPCHARTLENGHT + 1)
+            if (results.Count == Common.Constants.GlobalGameLogicDependencesValues.TopChartLength + 1)
             {
-                results.RemoveAt(Common.Constants.GlobalGameLogicDependencesValues.TOPCHARTLENGHT);
+                results.RemoveAt(Common.Constants.GlobalGameLogicDependencesValues.TopChartLength);
             } //remove the last score from the sorted highscore list
             SaveToFile(results); //save to file
         }
