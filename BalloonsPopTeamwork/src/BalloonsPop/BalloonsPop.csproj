@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Contracts\ICommand.cs" />
+    <Compile Include="Commands\ExitCommand.cs" />
+    <Compile Include="Commands\RestartCommand.cs" />
+    <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="Common\Constants\GameTitle.cs" />
     <Compile Include="Common\Constants\GlobalErrorMessages.cs" />
     <Compile Include="Common\Constants\GlobalGameLogicDependencesValues.cs" />

@@ -1,4 +1,4 @@
-﻿namespace BalloonsPop.Commands.Contracts
+﻿namespace BalloonsPop.Game.Commands.Contracts
 {
     interface ICommand
     {
