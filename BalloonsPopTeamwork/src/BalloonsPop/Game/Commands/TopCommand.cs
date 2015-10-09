@@ -2,7 +2,7 @@
 {
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class ExitCommand : ICommand
+    public class TopCommand : ICommand
     {
         public void Execute()
         {

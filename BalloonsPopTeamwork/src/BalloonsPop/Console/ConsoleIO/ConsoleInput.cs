@@ -37,8 +37,8 @@
 
         public static int ReadPlayfieldSize()
         {
-            // TO DO - need to implement
-            return 1;
+            int n = int.Parse(Console.ReadLine());
+            return n;
         }
     }
 }

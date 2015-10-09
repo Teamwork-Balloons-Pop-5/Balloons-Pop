@@ -10,6 +10,8 @@
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Game.Logic;
     using BalloonsPop.Console.ConsoleIO;
+    using Wintellect.PowerCollections;
+using BalloonsPop.Console.ConsoleUI.Menu;
 
     public sealed class Engine : IEngine
     {
@@ -18,6 +20,13 @@
         private PopStrategy popLogic;
         private int balloonsLeft;
         private int userMoves;
+        private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
+
+        // ConsoleIO
+
+        private ConsoleOutput consoleOutput = new ConsoleOutput();
+        private ConsoleInput consoleInput = new ConsoleInput();
+        private Menu menu = new Menu();
 
         private Engine()
         {
@@ -36,9 +45,33 @@
             }
         }
 
+        private bool IsFinished
+        {
+            get
+            {
+                return this.balloonsLeft == 0;
+            }
+        }
+
         public void Start()
         {
             var playfield = this.InitializePlayfield();
+            var gamePopLogic = new RecursivePopStrategy();
+
+            this.InitializeGame(playfield, gamePopLogic);
+            Console.Clear();
+            menu.PrintMenuHeader();
+            this.consoleOutput.PrintTable(this.playfield);
+            this.PlayGame();
+
+        }
+
+        private void InitializeGame(Playfield gamePlayfield, PopStrategy gamePopLogic)
+        {
+            this.playfield = gamePlayfield;
+            this.popLogic = gamePopLogic;
+            this.balloonsLeft = gamePlayfield.Width * gamePlayfield.Height;
+            this.userMoves = 0;
         }
 
         private Playfield InitializePlayfield()
@@ -78,6 +111,130 @@
 
             return playfield;
         }
+
+        private void PlayGame()
+        {
+            while (!IsFinished)
+            {
+                this.userMoves++;
+
+                string currentInput = this.consoleInput.ReadInput();
+
+                this.ProcessInput(currentInput);
+
+                this.consoleOutput.PrintTable(this.playfield);
+            }
+
+            this.AddUserToScoreboard();
+
+            string scoreboard = this.consoleOutput.CreateScoreboardString(this.statistics);
+            Console.WriteLine(scoreboard);
+
+            this.ProcessUserDescision();
+        }
+
+        private void ProcessInput(string input)
+        {
+            switch (input)
+            {
+                case "top":
+                    this.consoleOutput.CreateScoreboardString(this.statistics);
+                    break;
+                case "restart":
+                    this.Start();
+                    break;
+                case "exit":
+                    this.Exit();
+                    break;
+                default:
+                    this.ProcessInputBalloonPosition(input);
+                    break;
+            }
+        }
+
+        private void Exit()
+        {
+            this.consoleOutput.PrintExitMessage(this.userMoves, this.balloonsLeft);
+
+            Environment.Exit(0);
+        }
+
+        private void ProcessInputBalloonPosition(string input)
+        {
+            try
+            {
+                var splittedUserInput = input.Split(' ');
+                int currentRow = int.Parse(splittedUserInput[0]);
+                int currentCol = int.Parse(splittedUserInput[1]);
+
+                if (this.IsLegalMove(currentRow, currentCol))
+                {
+                    this.RemoveAllBaloons(currentRow, currentCol);
+                }
+                else
+                {
+                    this.consoleOutput.PrintInvalidMoveMessage();
+                }
+            }
+            catch (FormatException)
+            {
+                //extract to consoleIO or remove
+                Console.WriteLine("Row and col are not entered in the valid format.");
+                this.consoleOutput.PrintInvalidInputMessage();
+            }
+            catch (IndexOutOfRangeException)
+            {
+                // extract to ConsoleIOFacade or remove
+                Console.WriteLine("You did not enter two numbers for row and col.");
+                this.consoleOutput.PrintInvalidInputMessage();
+            }
+        }
+
+        private void AddUserToScoreboard()
+        {
+            this.consoleOutput.PrintWinMessage(this.userMoves);
+
+            string username = this.consoleInput.ReadUserName();
+
+            this.statistics.Add(this.userMoves, username);
+        }
+
+        private void ProcessUserDescision()
+        {
+            // extract to consoleIO
+            Console.WriteLine("Do you want to play again: Yes/No");
+            string userDescision = Console.ReadLine().ToLower();
+
+            if (userDescision == "yes")
+            {
+                this.Start();
+            }
+            else
+            {
+                this.Exit();
+            }
+        }
+
+        private void RemoveAllBaloons(int row, int col)
+        {
+            this.balloonsLeft -= this.popLogic.PopBaloons(row, col, this.playfield);
+        }
+
+        private bool IsLegalMove(int row, int col)
+        {
+            bool isValidRow = (row >= 0) && (row < this.playfield.Height);
+            bool isValidCol = (col >= 0) && (col < this.playfield.Width);
+
+            if (isValidRow && isValidCol)
+            {
+                return this.playfield.Field[row, col] != "0";
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         public void Run(string temp, byte[,] matrix, int userMoves, string[,] topFive)
         {

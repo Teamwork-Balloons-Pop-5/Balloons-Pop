@@ -9,11 +9,6 @@
     {
         public override int PopBaloons(int row, int col, Playfield playfield)
         {
-            if (Validator.IsNull(playfield))
-            {
-                throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Height"));
-            }
-
             bool isRowValid = row >= 0 && row < playfield.Height;
             bool isColValid = col >= 0 && col < playfield.Width;
 
@@ -21,7 +16,7 @@
             {
                 string selectedCellValue = playfield.Field[row, col];
 
-                if (selectedCellValue == ".")
+                if (selectedCellValue == "0")
                 {
                     return 0;
                 }
@@ -45,7 +40,7 @@
                 if (playfield.Field[row, col] == selectedCellValue)
                 {
                     // Pop current cell
-                    playfield.Field[row, col] = ".";
+                    playfield.Field[row, col] = "0";
                     poppedBaloons += 1;
 
                     // Up

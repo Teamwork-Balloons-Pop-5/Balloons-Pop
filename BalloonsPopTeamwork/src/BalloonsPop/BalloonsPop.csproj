@@ -32,6 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PowerCollections">
+      <HintPath>..\packages\XAct.Wintellect.PowerCollections.0.0.1\lib\net20\PowerCollections.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,10 +44,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Contracts\ICommand.cs" />
-    <Compile Include="Commands\ExitCommand.cs" />
-    <Compile Include="Commands\RestartCommand.cs" />
-    <Compile Include="Commands\SaveCommand.cs" />
     <Compile Include="Common\Constants\GameTitle.cs" />
     <Compile Include="Common\Constants\GlobalErrorMessages.cs" />
     <Compile Include="Common\Constants\GlobalGameLogicDependencesValues.cs" />
@@ -74,9 +73,15 @@
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Game\Chart.cs" />
     <Compile Include="Game\CheckCellInMatrix.cs" />
+    <Compile Include="Game\Commands\Contracts\ICommand.cs" />
+    <Compile Include="Game\Commands\ExitCommand.cs" />
+    <Compile Include="Game\Commands\RestartCommand.cs" />
+    <Compile Include="Game\Commands\SaveCommand.cs" />
+    <Compile Include="Game\Commands\TopCommand.cs" />
     <Compile Include="Game\GameLogic.cs" />
     <Compile Include="Game\Generator.cs" />
     <Compile Include="Game\Highscore.cs" />
+    <Compile Include="Game\Logic\MovingPopStrategy.cs" />
     <Compile Include="Game\Logic\RecursivePopStrategy.cs" />
     <Compile Include="Game\Matrix.cs" />
     <Compile Include="Game\StringExtensions.cs" />
@@ -86,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

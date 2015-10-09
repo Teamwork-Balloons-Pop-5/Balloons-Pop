@@ -1,7 +1,12 @@
 ﻿namespace BalloonsPop.Game.Commands
 {
-    public class SaveCommand
+    using BalloonsPop.Game.Commands.Contracts;
+
+    public class SaveCommand : ICommand
     {
-        // TODO
+        public void Execute()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

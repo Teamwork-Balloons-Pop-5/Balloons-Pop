@@ -38,7 +38,7 @@
                     }
 
                     // Set balloon color
-                   BalloonColor.PaintBalloonField(matrix[i, j]);
+                   BalloonColor.PaintBalloonField(matrix[i, j].ToString());
                 }
 
                 Console.Write("| ");

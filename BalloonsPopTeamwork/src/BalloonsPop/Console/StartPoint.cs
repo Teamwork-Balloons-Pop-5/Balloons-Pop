@@ -14,15 +14,15 @@
             var menu = new Menu();
             menu.Load();
 
-            string[,] topFive = new string[5, 2];
-            byte[,] matrix = Generator.GenerateBalloons(5, 10);
+            //string[,] topFive = new string[5, 2];
+            //byte[,] matrix = Generator.GenerateBalloons(5, 10);
+            //
+            //ConsoleUI.ConsoleUI.PrintingMatrixOnConsole(matrix);
+            //
+            //string temp = null;
+            //int userMoves = 0;
 
-            ConsoleUI.ConsoleUI.PrintingMatrixOnConsole(matrix);
-
-            string temp = null;
-            int userMoves = 0;
-
-            Engine.Instance.Run(temp, matrix, userMoves, topFive);
+            Engine.Instance.Start();
 
             Console.WriteLine(GlobalGameMessages.ExitGameMessage);
         }

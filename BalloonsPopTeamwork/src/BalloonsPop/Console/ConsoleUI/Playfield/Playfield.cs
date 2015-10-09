@@ -20,7 +20,7 @@
             this.Height = height;
             this.Width = width;
 
-            this.Field = new string[height, width];
+            this.Field = new string[this.height, this.width];
 
             this.InitializePlayfield();
         }
@@ -34,10 +34,10 @@
 
             private set
             {
-                if(Validator.IsNull(value))
-                {
-                    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Height"));
-                }
+                //if(Validator.IsNull(value))
+                //{
+                //    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Height"));
+                //}
                 if (Validator.IsPositiveInteger(value))
                 {
                     throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "Playfield.Height"));
@@ -56,10 +56,10 @@
 
             private set
             {
-                if (Validator.IsNull(value))
-                {
-                    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Width"));
-                }
+                //if (Validator.IsNull(value))
+                //{
+                //    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Width"));
+                //}
                 if (Validator.IsPositiveInteger(value))
                 {
                     throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "Playfield.Width"));
@@ -78,10 +78,10 @@
 
             private set
             {
-                if (Validator.IsNull(value))
-                {
-                    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield"));
-                }
+                //if (Validator.IsNull(value))
+                //{
+                //    throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield"));
+                //}
 
                 this.field = value;
             }
