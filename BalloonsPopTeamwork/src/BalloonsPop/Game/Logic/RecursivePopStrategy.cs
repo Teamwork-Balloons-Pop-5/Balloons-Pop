@@ -1,8 +1,5 @@
 ﻿namespace BalloonsPop.Game.Logic
 {
-    using System;
-    using BalloonsPop.Common;
-    using BalloonsPop.Common.Exceptions;
     using BalloonsPop.Console.ConsoleUI.Playfield;
 
     public class RecursivePopStrategy : IPopStrategy

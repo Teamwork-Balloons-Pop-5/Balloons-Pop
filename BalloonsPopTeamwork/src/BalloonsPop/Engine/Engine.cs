@@ -56,7 +56,7 @@ using BalloonsPop.Console.ConsoleUI.Menu;
         public void Start()
         {
             var playfield = this.InitializePlayfield();
-            var gamePopLogic = new RecursivePopStrategy();
+            var gamePopLogic = new MovingPopStrategy();
 
             this.InitializeGame(playfield, gamePopLogic);
             Console.Clear();
@@ -218,6 +218,7 @@ using BalloonsPop.Console.ConsoleUI.Menu;
         private void RemoveAllBaloons(int row, int col)
         {
             this.balloonsLeft -= this.popLogic.PopBaloons(row, col, this.playfield);
+            //Console.WriteLine(this.balloonsLeft);
         }
 
         private bool IsLegalMove(int row, int col)

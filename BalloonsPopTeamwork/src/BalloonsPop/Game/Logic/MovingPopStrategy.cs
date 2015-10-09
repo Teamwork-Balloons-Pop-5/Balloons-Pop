@@ -3,51 +3,87 @@
     using System;
 
     using BalloonsPop.Console.ConsoleUI.Playfield;
+    using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Console.ConsoleUI;
+    using System.Collections.Generic;
 
     public class MovingPopStrategy : IPopStrategy
     {
         public int PopBaloons(int row, int col, Playfield playfield)
         {
-            int userMoves = 0;
+            bool isRowValid = row >= 0 && row < playfield.Height;
+            bool isColValid = col >= 0 && col < playfield.Width;
 
-            while (true)
+            if (isRowValid && isColValid)
             {
-                Console.Write("Enter row and col: ");
-                string input = Console.ReadLine();
-                input = input.ToUpper().Trim();
+                string selectedCellValue = playfield.Field[row, col];
 
-                if ((input.Length == 3) &&
-                            (input[0] >= '0' && input[0] <= '9') &&
-                            (input[2] >= '0' && input[2] <= '9') &&
-                            (input[1] == ' ' || input[1] == '.' || input[1] == ','))
+                if (selectedCellValue == "0")
                 {
-                    int userRow = int.Parse(input[0].ToString());
-                    int userColumn = int.Parse(input[2].ToString());
+                    return 0;
+                }
+                else
+                {
+                    return this.PopBaloons(row, col, playfield, selectedCellValue);
+                }
+            }
 
-                    if (userRow > playfield.Height)
+            return 0;
+        }
+
+        private int PopBaloons(int row, int col, Playfield playfield, string selectedCellValue = null)
+        {
+            int poppedBaloons = 0;
+            bool isRowValid = row >= 0 && row < playfield.Height;
+            bool isColValid = col >= 0 && col < playfield.Width;
+
+            if (isRowValid && isColValid)
+            {
+                if (playfield.Field[row, col] == selectedCellValue)
+                {
+                    Matrix.ChangeMatrix(playfield, row, col);
+                    poppedBaloons++;
+
+                    poppedBaloons += this.PopBaloons(row - 1, col, playfield, selectedCellValue);
+                    poppedBaloons += this.PopBaloons(row + 1, col, playfield, selectedCellValue);
+                    poppedBaloons += this.PopBaloons(row, col + 1, playfield, selectedCellValue);
+                    poppedBaloons += this.PopBaloons(row, col - 1, playfield, selectedCellValue);
+                    fallBalloons(playfield);
+                }
+            }
+
+            return poppedBaloons;
+        }
+
+        //This is a complex algorithm
+        private void fallBalloons(Playfield matrix)
+        {
+            Stack<string> columnValues = new Stack<string>();
+
+            int rowsLenght = matrix.Height;
+            int columnsLength = matrix.Width;
+
+            for (int col = 0; col < columnsLength; col++)
+            {
+                for (int row = 0; row < rowsLenght; row++)
+                {
+                    if (matrix.Field[row, col] != "0")
                     {
-                        Console.WriteLine(GlobalGameMessages.WrongInputMessage);
-                        continue;
+                        columnValues.Push(matrix.Field[row, col]);
                     }
+                }
 
-                    if (Matrix.ChangeMatrix(playfield, userRow, userColumn))
+                for (int row = rowsLenght - 1; row >= 0; row--)
+                {
+                    try
                     {
-                        Console.WriteLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
-                        continue;
+                        matrix.Field[row, col] = columnValues.Pop();
                     }
-
-
-                    if (Winner.CheckIfWinner(playfield))
+                    catch (Exception)
                     {
-                        Console.WriteLine(GlobalGameMessages.InTopFiveWinningMessage, userMoves);
-                        Chart.SortAndPrintChartFive(userMoves);
-                    
-                        playfield = Generator.GenerateBalloons(5, 10);
-
+                        matrix.Field[row, col] = "0";
                     }
-                    ConsoleUI.PrintingMatrixOnConsole(playfield);
                 }
             }
         }

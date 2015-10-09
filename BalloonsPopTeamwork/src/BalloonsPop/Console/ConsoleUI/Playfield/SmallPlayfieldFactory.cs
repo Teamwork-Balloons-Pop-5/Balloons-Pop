@@ -2,8 +2,8 @@
 {
     public class SmallPlayfieldFactory : PlayfieldFactory
     {
-        private const int Width = 5;
-        private const int Height = 5;
+        private const int Width = 4;
+        private const int Height = 4;
 
         public override Playfield CreatePlayfield()
         {
