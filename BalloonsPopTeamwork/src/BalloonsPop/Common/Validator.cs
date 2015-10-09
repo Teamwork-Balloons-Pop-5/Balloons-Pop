@@ -7,7 +7,7 @@
     {
         public static bool IsNull(object argument)
         {
-            if(argument == null)
+            if (argument == null)
             {
                 return false;
             }
@@ -23,7 +23,6 @@
             }
 
             return false;
-           
         }
 
         public static bool ValidateIntIsEqualOrGreaterThan(int argument, int number)

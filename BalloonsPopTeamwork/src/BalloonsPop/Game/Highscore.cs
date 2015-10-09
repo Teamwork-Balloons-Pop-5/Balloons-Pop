@@ -9,6 +9,10 @@
         private int value;
         private string name;
 
+        public Highscore()
+        {
+        }
+
         public Highscore(string name, int value)
         {
             this.Value = value;

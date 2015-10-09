@@ -4,8 +4,7 @@
 
     public class NotValidLenghtStringException : Exception
     {
-        public NotValidLenghtStringException(string message)
-            :base(message)
+        public NotValidLenghtStringException(string message):base(message)
         {
             
         }
