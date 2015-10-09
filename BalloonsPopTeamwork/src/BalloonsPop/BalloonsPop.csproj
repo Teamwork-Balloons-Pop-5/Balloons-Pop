@@ -86,7 +86,7 @@
     <Compile Include="Game\Matrix.cs" />
     <Compile Include="Game\StringExtensions.cs" />
     <Compile Include="Game\Winner.cs" />
-    <Compile Include="Game\Logic\PopStrategy.cs" />
+    <Compile Include="Game\Logic\IPopStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

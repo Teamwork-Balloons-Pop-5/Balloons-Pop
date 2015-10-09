@@ -140,7 +140,6 @@
             Console.SetWindowSize(Common.Constants.GlobalGameLogicDependencesValues.WindowWidth, Common.Constants.GlobalGameLogicDependencesValues.WindowHeight);
             this.PrintMenuHeader();
             this.PrintMenuBody();
-            this.PrintMenuFooter();
         }
     }
 }

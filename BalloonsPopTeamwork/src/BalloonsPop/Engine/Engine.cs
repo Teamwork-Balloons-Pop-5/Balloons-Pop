@@ -17,7 +17,7 @@ using BalloonsPop.Console.ConsoleUI.Menu;
     {
         private static Engine engineInstance;
         private Playfield playfield;
-        private PopStrategy popLogic;
+        private IPopStrategy popLogic;
         private int balloonsLeft;
         private int userMoves;
         private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
@@ -66,7 +66,7 @@ using BalloonsPop.Console.ConsoleUI.Menu;
 
         }
 
-        private void InitializeGame(Playfield gamePlayfield, PopStrategy gamePopLogic)
+        private void InitializeGame(Playfield gamePlayfield, IPopStrategy gamePopLogic)
         {
             this.playfield = gamePlayfield;
             this.popLogic = gamePopLogic;
@@ -236,71 +236,71 @@ using BalloonsPop.Console.ConsoleUI.Menu;
         }
 
 
-        public void Run(string temp, byte[,] matrix, int userMoves, string[,] topFive)
-        {
-            while (temp != "EXIT")
-            {
-                Console.WriteLine(GlobalGameMessages.AskingToEnterRowAndColumnMessage);
-                temp = Console.ReadLine();
-                temp = temp.ToUpper().Trim();
-
-                switch (temp)
-                {
-                    case "RESTART":
-                        ConsoleUI.PrintingMatrixOnConsole(matrix);
-                        userMoves = 0;
-                        break;
-
-                    case "TOP":
-                        Chart.SortAndPrintChartFive(userMoves);
-                        break;
-
-                    default:
-                        if ((temp.Length == 3) &&
-                            (temp[0] >= '0' && temp[0] <= '9') &&
-                            (temp[2] >= '0' && temp[2] <= '9') &&
-                            (temp[1] == ' ' || temp[1] == '.' || temp[1] == ','))
-                        {
-                            int userRow, userColumn;
-                            userRow = int.Parse(temp[0].ToString());
-
-                            if (userRow > 4)
-                            {
-                                Console.WriteLine(GlobalGameMessages.WrongInputMessage);
-                                continue;
-                            }
-
-                            userColumn = int.Parse(temp[2].ToString());
-
-                            if (Matrix.ChangeMatrix(matrix, userRow, userColumn))
-                            {
-                                Console.WriteLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
-                                continue;
-                            }
-
-                            userMoves++;
-
-                            if (Winner.CheckIfWinner(matrix))
-                            {
-                                Console.WriteLine(GlobalGameMessages.InTopFiveWinningMessage, userMoves);
-                                Chart.SortAndPrintChartFive(userMoves);
-
-                                matrix = Generator.GenerateBalloons(5, 10);
-                                userMoves = 0;
-                            }
-
-                            ConsoleUI.PrintingMatrixOnConsole(matrix);
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine(GlobalGameMessages.WrongInputMessage);
-                            break;
-                        }
-                }
-            }
-
-            return;
-        }
+        // public void Run(string temp, byte[,] matrix, int userMoves, string[,] topFive)
+        // {
+        //     while (temp != "EXIT")
+        //     {
+        //         Console.WriteLine(GlobalGameMessages.AskingToEnterRowAndColumnMessage);
+        //         temp = Console.ReadLine();
+        //         temp = temp.ToUpper().Trim();
+        // 
+        //         switch (temp)
+        //         {
+        //             case "RESTART":
+        //                 ConsoleUI.PrintingMatrixOnConsole(matrix);
+        //                 userMoves = 0;
+        //                 break;
+        // 
+        //             case "TOP":
+        //                 Chart.SortAndPrintChartFive(userMoves);
+        //                 break;
+        // 
+        //             default:
+        //                 if ((temp.Length == 3) &&
+        //                     (temp[0] >= '0' && temp[0] <= '9') &&
+        //                     (temp[2] >= '0' && temp[2] <= '9') &&
+        //                     (temp[1] == ' ' || temp[1] == '.' || temp[1] == ','))
+        //                 {
+        //                     int userRow, userColumn;
+        //                     userRow = int.Parse(temp[0].ToString());
+        // 
+        //                     if (userRow > 4)
+        //                     {
+        //                         Console.WriteLine(GlobalGameMessages.WrongInputMessage);
+        //                         continue;
+        //                     }
+        // 
+        //                     userColumn = int.Parse(temp[2].ToString());
+        // 
+        //                     if (Matrix.ChangeMatrix(matrix, userRow, userColumn))
+        //                     {
+        //                         Console.WriteLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
+        //                         continue;
+        //                     }
+        // 
+        //                     userMoves++;
+        // 
+        //                     if (Winner.CheckIfWinner(matrix))
+        //                     {
+        //                         Console.WriteLine(GlobalGameMessages.InTopFiveWinningMessage, userMoves);
+        //                         Chart.SortAndPrintChartFive(userMoves);
+        // 
+        //                         matrix = Generator.GenerateBalloons(5, 10);
+        //                         userMoves = 0;
+        //                     }
+        // 
+        //                     ConsoleUI.PrintingMatrixOnConsole(matrix);
+        //                     break;
+        //                 }
+        //                 else
+        //                 {
+        //                     Console.WriteLine(GlobalGameMessages.WrongInputMessage);
+        //                     break;
+        //                 }
+        //         }
+        //     }
+        // 
+        //     return;
+        // }
     }
 }

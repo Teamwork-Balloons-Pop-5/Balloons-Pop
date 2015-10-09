@@ -1,27 +1,28 @@
 ﻿namespace BalloonsPop.Game
 {
+    using BalloonsPop.Console.ConsoleUI.Playfield;
     using System;
     using System.Collections.Generic;
 
     public class Winner
     {
-        public static bool CheckIfWinner(byte[,] field)
+        public static bool CheckIfWinner(Playfield matrix)
         {
             bool isWinner = true;
 
-            Stack<byte> columnValues = new Stack<byte>();
+            Stack<string> columnValues = new Stack<string>();
 
-            int rowsLenght = field.GetLength(0);
-            int columnsLength = field.GetLength(1);
+            int rowsLenght = matrix.Height;
+            int columnsLength = matrix.Width;
 
             for (int col = 0; col < columnsLength; col++)
             {
                 for (int row = 0; row < rowsLenght; row++)
                 {
-                    if (field[row, col] != 0)
+                    if (matrix.Field[row, col] != "0")
                     {
                         isWinner = false;
-                        columnValues.Push(field[row, col]);
+                        columnValues.Push(matrix.Field[row, col]);
                     }
                 }
 
@@ -29,11 +30,11 @@
                 {
                     try
                     {
-                        field[row, col] = columnValues.Pop();
+                        matrix.Field[row, col] = columnValues.Pop();
                     }
                     catch (Exception)
                     {
-                        field[row, col] = 0;
+                        matrix.Field[row, col] = "0";
                     }
                 }
             }

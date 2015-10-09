@@ -1,17 +1,18 @@
-﻿namespace BalloonsPop.Game
+﻿using BalloonsPop.Console.ConsoleUI.Playfield;
+namespace BalloonsPop.Game
 {
     public class Matrix
     {
-        public static bool ChangeMatrix(byte[,] matrixToModify, int row, int column)
+        public static bool ChangeMatrix(Playfield matrixToModify, int row, int column)
         {
-            if (matrixToModify[row, column] == 0)
+            if (matrixToModify.Field[row, column] == "0")
             {
                 return true;
             }
 
-            byte searchedTarget = matrixToModify[row, column];
+            string searchedTarget = matrixToModify.Field[row, column];
 
-            matrixToModify[row, column] = 0;
+            matrixToModify.Field[row, column] = "0";
 
             CheckCellInMatrix.CheckLeft(matrixToModify, row, column, searchedTarget);
             CheckCellInMatrix.CheckRight(matrixToModify, row, column, searchedTarget);

@@ -5,9 +5,9 @@
     using BalloonsPop.Common.Exceptions;
     using BalloonsPop.Console.ConsoleUI.Playfield;
 
-    public class RecursivePopStrategy : PopStrategy
+    public class RecursivePopStrategy : IPopStrategy
     {
-        public override int PopBaloons(int row, int col, Playfield playfield)
+        public int PopBaloons(int row, int col, Playfield playfield)
         {
             bool isRowValid = row >= 0 && row < playfield.Height;
             bool isColValid = col >= 0 && col < playfield.Width;
