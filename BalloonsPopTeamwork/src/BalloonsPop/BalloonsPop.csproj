@@ -54,7 +54,10 @@
     <Compile Include="Common\Enum\CommandType.cs" />
     <Compile Include="Common\Enum\GameDifficulty.cs" />
     <Compile Include="Common\Enum\ShootingDirection.cs" />
-    <Compile Include="Common\Exceptions\Exceptions.cs" />
+    <Compile Include="Common\Exceptions\CannotBeNullException.cs" />
+    <Compile Include="Common\Exceptions\IntNotEqualOrGreaterThan.cs" />
+    <Compile Include="Common\Exceptions\NotPositiveIntegerException.cs" />
+    <Compile Include="Common\Exceptions\NotValidLenghtStringException.cs" />
     <Compile Include="Common\Generator\RandomGenerator.cs" />
     <Compile Include="Common\Validator.cs" />
     <Compile Include="Console\ConsoleIO\ConsoleInput.cs" />
