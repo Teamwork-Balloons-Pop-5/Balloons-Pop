@@ -1,6 +1,7 @@
-﻿using BalloonsPop.Console.ConsoleUI.Playfield;
-namespace BalloonsPop.Game
+﻿namespace BalloonsPop.Game
 {
+    using BalloonsPop.Console.ConsoleUI.Playfield;
+
     public class Matrix
     {
         public static bool ChangeMatrix(Playfield matrixToModify, int row, int column)

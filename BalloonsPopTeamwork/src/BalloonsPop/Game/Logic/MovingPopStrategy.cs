@@ -1,12 +1,9 @@
 ﻿namespace BalloonsPop.Game.Logic
 {
     using System;
+    using System.Collections.Generic;
 
     using BalloonsPop.Console.ConsoleUI.Playfield;
-    using BalloonsPop.Console.ConsoleUI.Playfield;
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Console.ConsoleUI;
-    using System.Collections.Generic;
 
     public class MovingPopStrategy : IPopStrategy
     {
@@ -49,15 +46,15 @@
                     poppedBaloons += this.PopBaloons(row + 1, col, playfield, selectedCellValue);
                     poppedBaloons += this.PopBaloons(row, col + 1, playfield, selectedCellValue);
                     poppedBaloons += this.PopBaloons(row, col - 1, playfield, selectedCellValue);
-                    fallBalloons(playfield);
+                    this.FallBalloons(playfield);
                 }
             }
 
             return poppedBaloons;
         }
 
-        //This is a complex algorithm
-        private void fallBalloons(Playfield matrix)
+        // This is a complex algorithm
+        private void FallBalloons(Playfield matrix)
         {
             Stack<string> columnValues = new Stack<string>();
 

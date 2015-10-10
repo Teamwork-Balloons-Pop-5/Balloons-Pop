@@ -4,9 +4,8 @@
 
     public class NotValidLenghtStringException : Exception
     {
-        public NotValidLenghtStringException(string message):base(message)
+        public NotValidLenghtStringException(string message) : base(message)
         {
-            
         }
     }
 
@@ -15,7 +14,6 @@
         public CannotBeNullException(string message)
             : base(message)
         {
-
         }
     }
 
@@ -24,7 +22,6 @@
         public NotPositiveIntegerException(string message)
             : base(message)
         {
-
         }
     }
 
@@ -33,7 +30,6 @@
         public IntNotEqualOrGreaterThan(string message)
             : base(message)
         {
-
         }
     }
 }

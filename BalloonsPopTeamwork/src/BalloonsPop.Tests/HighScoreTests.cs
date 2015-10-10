@@ -1,12 +1,8 @@
 ﻿namespace BalloonsPop.Tests
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using BalloonsPop.Console.ConsoleUI;
-    using BalloonsPop.Console.ConsoleIO;
-    using BalloonsPop.Game;
     using BalloonsPop.Common.Exceptions;
+    using BalloonsPop.Game;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class HighScoreTests

@@ -1,13 +1,7 @@
 ﻿namespace BalloonsPop.Tests
 {
-    using System;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-    using BalloonsPop.Console.ConsoleUI;
-    using BalloonsPop.Console.ConsoleIO;
-    using BalloonsPop.Game;
-    using BalloonsPop.Common.Exceptions;
     using BalloonsPop.Console.ConsoleUI.Playfield;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class PlayfieldTest
@@ -19,9 +13,6 @@
 
             Assert.AreEqual(playField.Height, Playfield.InitialHeight);
             Assert.AreEqual(playField.Width, Playfield.InitialWidth);
-          
         }
-
-        
     }
 }

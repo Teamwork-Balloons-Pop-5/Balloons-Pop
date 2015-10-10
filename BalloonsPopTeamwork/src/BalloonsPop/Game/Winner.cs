@@ -1,8 +1,9 @@
 ﻿namespace BalloonsPop.Game
 {
-    using BalloonsPop.Console.ConsoleUI.Playfield;
     using System;
     using System.Collections.Generic;
+
+    using BalloonsPop.Console.ConsoleUI.Playfield;
 
     public class Winner
     {

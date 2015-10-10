@@ -32,6 +32,7 @@
                 {
                     throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "HighScore.Value"));
                 }
+
                 this.value = value;
             }
         }

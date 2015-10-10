@@ -1,40 +1,13 @@
 ﻿namespace BalloonsPop.Console.ConsoleIO
 {
     using System;
-    using BalloonsPop.Common.Constants;
     using BalloonsPop.Common;
+    using BalloonsPop.Common.Constants;
     using BalloonsPop.Console.ConsoleUI.Menu;
 
     public class ConsoleInput
     {
         private MessagePrinter printer = new MessagePrinter();
-
-        public string ReadInput()
-        {
-            printer.Print(GlobalGameMessages.AskingToEnterRowAndColumnMessage);
-
-            string userInput = Console.ReadLine();
-
-            return userInput;
-        }
-
-        public string ReadUserName()
-        {
-            printer.Print(GlobalGameMessages.AskingForUserNameMessage);
-          
-            
-            string userName = Console.ReadLine();
-
-            var isCorrect = Validator.IsStringLenghtValid(userName, Common.Constants.GlobalGameLogicDependencesValues.MinUsernameLength, Common.Constants.GlobalGameLogicDependencesValues.MaxUsernameLength);
-
-            while (isCorrect)
-            {
-                printer.Print(string.Format(GlobalGameMessages.UserNameLenghtMessage, Common.Constants.GlobalGameLogicDependencesValues.MinUsernameLength, Common.Constants.GlobalGameLogicDependencesValues.MaxUsernameLength));
-                printer.Print(GlobalGameMessages.AskingForUserNameMessage);
-                userName = Console.ReadLine();
-            }
-            return userName;
-        }
 
         public static int ReadPlayfieldSize()
         {
@@ -50,11 +23,11 @@
                 {
                     do
                     {
-                        string Message1 = "Please select your desired game mode: ";
+                        string message1 = "Please select your desired game mode: ";
 
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("");
-                        Console.Write(string.Format("{0," + ((Console.WindowWidth / 2) + (Message1.Length / 2)) + "}", Message1));
+                        Console.WriteLine(string.Empty);
+                        Console.Write(string.Format("{0," + ((Console.WindowWidth / 2) + (message1.Length / 2)) + "}", message1));
                         Console.ForegroundColor = ConsoleColor.Green;
                         gameModeString = Console.ReadLine();
                         Console.ResetColor();
@@ -70,7 +43,8 @@
                         else
                         {
                             validGameMode = true;
-                            //this.gameMode = gameMode;
+
+                            // this.gameMode = gameMode;
                         }
                     }
                     while ((gameMode > 3) || (gameMode < 1));
@@ -90,6 +64,33 @@
             menu.PrintMenuHeader();
 
             return gameMode;
+        }
+
+        public string ReadInput()
+        {
+            this.printer.Print(GlobalGameMessages.AskingToEnterRowAndColumnMessage);
+
+            string userInput = Console.ReadLine();
+
+            return userInput;
+        }
+
+        public string ReadUserName()
+        {
+            this.printer.Print(GlobalGameMessages.AskingForUserNameMessage);
+
+            string userName = Console.ReadLine();
+
+            var isCorrect = Validator.IsStringLenghtValid(userName, Common.Constants.GlobalGameLogicDependencesValues.MinUsernameLength, Common.Constants.GlobalGameLogicDependencesValues.MaxUsernameLength);
+
+            while (isCorrect)
+            {
+                this.printer.Print(string.Format(GlobalGameMessages.UserNameLenghtMessage, Common.Constants.GlobalGameLogicDependencesValues.MinUsernameLength, Common.Constants.GlobalGameLogicDependencesValues.MaxUsernameLength));
+                this.printer.Print(GlobalGameMessages.AskingForUserNameMessage);
+                userName = Console.ReadLine();
+            }
+
+            return userName;
         }
     }
 }

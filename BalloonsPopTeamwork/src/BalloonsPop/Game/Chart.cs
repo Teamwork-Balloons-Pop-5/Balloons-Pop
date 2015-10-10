@@ -2,31 +2,31 @@
 {
     using System;
     using System.Collections.Generic;
-    using Common.Constants;
+
     using BalloonsPop.Console.ConsoleIO;
 
     public class Chart
     {
         public static void SortAndPrintChartFive(int spentMoves)
         {
-            //To do: get current score
-            var ConsoleInut = new ConsoleInput();
-            var userName = ConsoleInut.ReadUserName();
+            // To do: get current score
+            var consoleInut = new ConsoleInput();
+            var userName = consoleInut.ReadUserName();
             var currentScore = new Highscore(userName, spentMoves); // get current score
-            var scores = GetHighScoresFromFile(); //read from file
+            var scores = GetHighScoresFromFile(); // read from file
             var results = new List<Highscore>();
             foreach (var item in scores)
             {
                 results.Add(ScoreParser(item));
             } // add old highscores
-            results.Add(currentScore); //add current score to highscores
-            results.Sort((x1, x2) => x1.Value.CompareTo(x2.Value)); //sort score
+            results.Add(currentScore); // add current score to highscores
+            results.Sort((x1, x2) => x1.Value.CompareTo(x2.Value)); // sort score
 
             if (results.Count == Common.Constants.GlobalGameLogicDependencesValues.TopChartLength + 1)
             {
                 results.RemoveAt(Common.Constants.GlobalGameLogicDependencesValues.TopChartLength);
-            } //remove the last score from the sorted highscore list
-            SaveToFile(results); //save to file
+            } // remove the last score from the sorted highscore list
+            SaveToFile(results); // save to file
         }
 
         private static IEnumerable<string> GetHighScoresFromFile()

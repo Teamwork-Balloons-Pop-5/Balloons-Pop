@@ -1,7 +1,8 @@
 ﻿namespace BalloonsPop.Game
 {
-    using BalloonsPop.Console.ConsoleUI.Playfield;
     using System;
+
+    using BalloonsPop.Console.ConsoleUI.Playfield;
 
     public class CheckCellInMatrix
     {
@@ -92,6 +93,5 @@
                 return;
             }
         }
-
     }
 }

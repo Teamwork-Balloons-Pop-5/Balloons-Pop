@@ -1,6 +1,6 @@
 ﻿namespace BalloonsPop.Game.Commands.Contracts
 {
-    interface ICommand
+    public interface ICommand
     {
         void Execute();
     }

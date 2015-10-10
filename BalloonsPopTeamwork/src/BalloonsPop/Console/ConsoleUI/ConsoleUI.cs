@@ -1,7 +1,6 @@
 ﻿namespace BalloonsPop.Console.ConsoleUI
 {
     using System;
-    using BalloonsPop.Console.ConsoleUI.Playfield;
 
     using BalloonsPop.Console.ConsoleUI.Colors;
 

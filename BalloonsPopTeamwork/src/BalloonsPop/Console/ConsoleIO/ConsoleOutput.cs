@@ -1,43 +1,43 @@
 ﻿namespace BalloonsPop.Console.ConsoleIO
 {
     using System;
+    using System.Text;
 
     using BalloonsPop.Common.Constants;
+    using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using Wintellect.PowerCollections;
-    using System.Text;
-    using BalloonsPop.Console.ConsoleUI.Colors;
-
+    
     public class ConsoleOutput
     {
         private MessagePrinter printer = new MessagePrinter();
 
         public void PrintWelcomeMessage()
         {
-            printer.PrintLine(GlobalGameMessages.WelcomeMessage);
+            this.printer.PrintLine(GlobalGameMessages.WelcomeMessage);
         }
 
         public void PrintInvalidInputMessage()
         {
-            printer.PrintLine(GlobalGameMessages.WrongInputMessage);
+            this.printer.PrintLine(GlobalGameMessages.WrongInputMessage);
         }
 
         public void PrintExitMessage(int userMoves, int balloonsLeft)
         {
-            printer.PrintLine(GlobalGameMessages.ExitGameMessage);
-            printer.PrintLine(userMoves.ToString());
-            printer.PrintLine(balloonsLeft.ToString());
+            this.printer.PrintLine(GlobalGameMessages.ExitGameMessage);
+            this.printer.PrintLine(userMoves.ToString());
+            this.printer.PrintLine(balloonsLeft.ToString());
         }
 
         public void PrintInvalidMoveMessage()
         {
-            printer.PrintLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
+            this.printer.PrintLine(GlobalGameMessages.TryingToPopMissingBalloonMessage);
         }
 
         public void PrintWinMessage(int userMoves)
         {
             string message = string.Format(GlobalGameMessages.InTopFiveWinningMessage, userMoves);
-            printer.PrintLine(message);
+            this.printer.PrintLine(message);
         }
 
         public void PrintTable(Playfield playfield)
@@ -112,7 +112,7 @@
                 else
                 {
                     counter++;
-                    var format = String.Format("{0}. {1} --> {2} moves", resultsCount, result.Value, result.Key);
+                    var format = string.Format("{0}. {1} --> {2} moves", resultsCount, result.Value, result.Key);
                     scoreboard.AppendLine(format);
                 }
             }

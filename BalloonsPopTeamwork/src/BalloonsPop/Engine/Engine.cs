@@ -1,17 +1,13 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
-    using System.Collections.Generic;
 
-    using BalloonsPop.Engine.Contracts;
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Console.ConsoleUI;
-    using BalloonsPop.Game;
-    using BalloonsPop.Console.ConsoleUI.Playfield;
-    using BalloonsPop.Game.Logic;
     using BalloonsPop.Console.ConsoleIO;
+    using BalloonsPop.Console.ConsoleUI.Menu;
+    using BalloonsPop.Console.ConsoleUI.Playfield;
+    using BalloonsPop.Engine.Contracts;
+    using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
-using BalloonsPop.Console.ConsoleUI.Menu;
 
     public sealed class Engine : IEngine
     {
@@ -23,7 +19,6 @@ using BalloonsPop.Console.ConsoleUI.Menu;
         private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
 
         // ConsoleIO
-
         private ConsoleOutput consoleOutput = new ConsoleOutput();
         private ConsoleInput consoleInput = new ConsoleInput();
         private Menu menu = new Menu();
@@ -60,10 +55,9 @@ using BalloonsPop.Console.ConsoleUI.Menu;
 
             this.InitializeGame(playfield, gamePopLogic);
             Console.Clear();
-            menu.PrintMenuHeader();
+            this.menu.PrintMenuHeader();
             this.consoleOutput.PrintTable(this.playfield);
             this.PlayGame();
-
         }
 
         private void InitializeGame(Playfield gamePlayfield, IPopStrategy gamePopLogic)
@@ -114,7 +108,7 @@ using BalloonsPop.Console.ConsoleUI.Menu;
 
         private void PlayGame()
         {
-            while (!IsFinished)
+            while (!this.IsFinished)
             {
                 this.userMoves++;
 
@@ -178,7 +172,7 @@ using BalloonsPop.Console.ConsoleUI.Menu;
             }
             catch (FormatException)
             {
-                //extract to consoleIO or remove
+                // extract to consoleIO or remove
                 Console.WriteLine("Row and col are not entered in the valid format.");
                 this.consoleOutput.PrintInvalidInputMessage();
             }
@@ -218,7 +212,8 @@ using BalloonsPop.Console.ConsoleUI.Menu;
         private void RemoveAllBaloons(int row, int col)
         {
             this.balloonsLeft -= this.popLogic.PopBaloons(row, col, this.playfield);
-            //Console.WriteLine(this.balloonsLeft);
+
+            // Console.WriteLine(this.balloonsLeft);
         }
 
         private bool IsLegalMove(int row, int col)
@@ -235,7 +230,6 @@ using BalloonsPop.Console.ConsoleUI.Menu;
                 return false;
             }
         }
-
 
         // public void Run(string temp, byte[,] matrix, int userMoves, string[,] topFive)
         // {

@@ -14,8 +14,8 @@
         private const string HowToPlayMessage = "To do this you enter balloon coordinates in a turn-by-turn basis.";
         private const string ChooseGameModeMessage = "Please choose game mode";
         private const string EmptyTextLine = "";
-        private const string borderTop = GameTitle.GameTitleBorder + EmptyTextLine;
-        private const string borderBottom = EmptyTextLine + GameTitle.GameTitleBorder;
+        private const string BorderTop = GameTitle.GameTitleBorder + EmptyTextLine;
+        private const string BorderBottom = EmptyTextLine + GameTitle.GameTitleBorder;
 
         private int gameMode;
 
@@ -33,33 +33,35 @@
 
         public void PrintMenuHeader()
         {
-            PrintGameText(ConsoleColor.White, borderTop);
-            PrintGameText(ConsoleColor.Yellow, GameTitle.GameTitlePartOne);
-            PrintGameText(ConsoleColor.Red, GameTitle.GameTitlePartTwo, GameTitle.GameTitlePartThree);
-            PrintGameText(ConsoleColor.Green, GameTitle.GameTitlePartFour, GameTitle.GameTitlePartFive);
-            PrintGameText(ConsoleColor.DarkBlue, GameTitle.GameTitlePartSix, GameTitle.GameTitlePartSeven);
-            PrintGameText(ConsoleColor.White, borderBottom);
+            this.PrintGameText(ConsoleColor.White, BorderTop);
+            this.PrintGameText(ConsoleColor.Yellow, GameTitle.GameTitlePartOne);
+            this.PrintGameText(ConsoleColor.Red, GameTitle.GameTitlePartTwo, GameTitle.GameTitlePartThree);
+            this.PrintGameText(ConsoleColor.Green, GameTitle.GameTitlePartFour, GameTitle.GameTitlePartFive);
+            this.PrintGameText(ConsoleColor.DarkBlue, GameTitle.GameTitlePartSix, GameTitle.GameTitlePartSeven);
+            this.PrintGameText(ConsoleColor.White, BorderBottom);
         }
 
         public void PrintMenuBody()
         {
-            PrintGameText(ConsoleColor.White,
-                          WelcomeGameMessage, 
-                          AimOfGameMessage, 
+            this.PrintGameText(
+                ConsoleColor.White,
+                          WelcomeGameMessage,
+                          AimOfGameMessage,
                           HowToPlayMessage,
                           EmptyTextLine);
 
-            PrintGameText(ConsoleColor.DarkBlue, ChooseGameModeMessage, EmptyTextLine);
+            this.PrintGameText(ConsoleColor.DarkBlue, ChooseGameModeMessage, EmptyTextLine);
 
-            PrintGameText(ConsoleColor.Green, 
-                          GameModeEasy, 
-                          EmptyTextLine, 
-                          GameModeMedium, 
-                          EmptyTextLine, 
-                          GameModeHard, 
+            this.PrintGameText(
+                ConsoleColor.Green,
+                          GameModeEasy,
+                          EmptyTextLine,
+                          GameModeMedium,
+                          EmptyTextLine,
+                          GameModeHard,
                           EmptyTextLine);
 
-            PrintGameText(ConsoleColor.White, borderBottom);
+            this.PrintGameText(ConsoleColor.White, BorderBottom);
         }
 
         public void PrintMenuFooter()
@@ -75,11 +77,11 @@
                 {
                     do
                     {
-                        string Message1 = "Please select your desired game mode: ";
+                        string message1 = "Please select your desired game mode: ";
 
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("");
-                        CenterStringWrite(Message1);
+                        Console.WriteLine(string.Empty);
+                        this.CenterStringWrite(message1);
                         Console.ForegroundColor = ConsoleColor.Green;
                         gameModeString = Console.ReadLine();
                         Console.ResetColor();
@@ -89,7 +91,7 @@
                         {
                             error = "Please choose a number either 1, 2, or 3.";
                             Console.ForegroundColor = ConsoleColor.Red;
-                            CenterString(error);
+                            this.CenterString(error);
                             Console.ResetColor();
                         }
                         else
@@ -98,21 +100,28 @@
                             this.gameMode = gameMode;
                         }
                     }
-                    while ((gameMode > 3) || (gameMode < 1)); 
+                    while ((gameMode > 3) || (gameMode < 1));
                 }
                 catch (FormatException)
                 {
                     error = " Please enter a number in digit form (e.g. 3)";
 
                     Console.ForegroundColor = ConsoleColor.Red;
-                    CenterString(error);
+                    this.CenterString(error);
                     Console.ResetColor();
                 }
             }
             while (!validGameMode);
 
             Console.Clear();
-            PrintMenuHeader();
+            this.PrintMenuHeader();
+        }
+
+        public void Load()
+        {
+            Console.SetWindowSize(Common.Constants.GlobalGameLogicDependencesValues.WindowWidth, Common.Constants.GlobalGameLogicDependencesValues.WindowHeight);
+            this.PrintMenuHeader();
+            this.PrintMenuBody();
         }
 
         private void CenterString(string text)
@@ -128,18 +137,11 @@
         private void PrintGameText(ConsoleColor color, params string[] text)
         {
             Console.ForegroundColor = color;
-            
+
             foreach (var textLine in text)
             {
-                CenterString(textLine);
+                this.CenterString(textLine);
             }
-        }
-
-        public void Load()
-        {
-            Console.SetWindowSize(Common.Constants.GlobalGameLogicDependencesValues.WindowWidth, Common.Constants.GlobalGameLogicDependencesValues.WindowHeight);
-            this.PrintMenuHeader();
-            this.PrintMenuBody();
         }
     }
 }
