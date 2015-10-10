@@ -15,7 +15,28 @@
 
         private string[,] field;
 
-        public Playfield(int height = InitialHeight, int width = InitialWidth)
+        
+
+        public Playfield()
+        {
+            this.Height = Playfield.InitialHeight;
+            this.Width = Playfield.InitialWidth;
+        }
+
+        //TODO: check if needed!
+        /*public Playfield(int height)
+        {
+            this.Height = height;
+            this.Width = Playfield.InitialWidth;
+        }
+
+        public Playfield(int width)
+        {
+            this.Height = Playfield.InitialHeight;
+            this.Width = width;
+        }
+        */
+        public Playfield(int height, int width)
         {
             this.Height = height;
             this.Width = width;
@@ -24,6 +45,8 @@
 
             this.InitializePlayfield();
         }
+
+
 
         public int Height
         {
