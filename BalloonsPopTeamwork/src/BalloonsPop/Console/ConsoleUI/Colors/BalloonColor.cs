@@ -4,7 +4,8 @@
 
     public class BalloonColor
     {
-        public static void PaintBalloonField(string currentBalloon)
+        // Finished
+        public void PaintBalloon(string currentBalloon)
         {
             switch (currentBalloon)
             {
@@ -23,7 +24,8 @@
             }
         }
 
-        private static void SetColor(ConsoleColor balloonColor, string balloonDigit, ConsoleColor textColor)
+        // Finished
+        private void SetColor(ConsoleColor balloonColor, string balloonDigit, ConsoleColor textColor)
         {
             Console.ForegroundColor = balloonColor;
             Console.Write(balloonDigit + " ");

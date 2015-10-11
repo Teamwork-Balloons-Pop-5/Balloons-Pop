@@ -22,11 +22,9 @@
             this.printer.PrintLine(GlobalGameMessages.WrongInputMessage);
         }
 
-        public void PrintExitMessage(int userMoves, int balloonsLeft)
+        public void PrintExitMessage()
         {
             this.printer.PrintLine(GlobalGameMessages.ExitGameMessage);
-            this.printer.PrintLine(userMoves.ToString());
-            this.printer.PrintLine(balloonsLeft.ToString());
         }
 
         public void PrintInvalidMoveMessage()
@@ -77,7 +75,7 @@
                     }
 
                     // Set balloon color
-                    BalloonColor.PaintBalloonField(playfield.Field[i, j]);
+                    //BalloonColor.PaintBalloon(playfield.Field[i, j]);
                 }
 
                 Console.Write("| ");

@@ -80,7 +80,6 @@
                         string message1 = "Please select your desired game mode: ";
 
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine(string.Empty);
                         this.CenterStringWrite(message1);
                         Console.ForegroundColor = ConsoleColor.Green;
                         gameModeString = Console.ReadLine();
