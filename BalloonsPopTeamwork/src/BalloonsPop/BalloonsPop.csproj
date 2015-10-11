@@ -66,11 +66,11 @@
     <Compile Include="Console\ConsoleUI\Colors\BalloonColor.cs" />
     <Compile Include="Console\ConsoleUI\ConsoleUI.cs" />
     <Compile Include="Console\ConsoleUI\Menu\Menu.cs" />
-    <Compile Include="Console\ConsoleUI\Playfield\LargePlayfieldFactory.cs" />
-    <Compile Include="Console\ConsoleUI\Playfield\MediumPlayfieldFactory.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\LargePlayfieldCreator.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\MediumPlayfieldCreator.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\Playfield.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\PlayfieldFactory.cs" />
-    <Compile Include="Console\ConsoleUI\Playfield\SmallPlayfieldFactory.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\SmallPlayfieldCreator.cs" />
     <Compile Include="Console\StartPoint.cs" />
     <Compile Include="Engine\Contracts\IEngine.cs" />
     <Compile Include="Engine\Engine.cs" />

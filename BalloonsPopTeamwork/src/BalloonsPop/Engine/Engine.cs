@@ -82,17 +82,17 @@
                 switch (playfieldSize)
                 {
                     case 1:
-                        playfiledFactory = new SmallPlayfieldFactory();
+                        playfiledFactory = new SmallPlayfieldCreator();
                         playfield = playfiledFactory.CreatePlayfield();
                         isPlayfieldSizeIncorrect = false;
                         break;
                     case 2:
-                        playfiledFactory = new MediumPlayfieldFactory();
+                        playfiledFactory = new MediumPlayfieldCreator();
                         playfield = playfiledFactory.CreatePlayfield();
                         isPlayfieldSizeIncorrect = false;
                         break;
                     case 3:
-                        playfiledFactory = new LargePlayfieldFactory();
+                        playfiledFactory = new LargePlayfieldCreator();
                         playfield = playfiledFactory.CreatePlayfield();
                         isPlayfieldSizeIncorrect = false;
                         break;

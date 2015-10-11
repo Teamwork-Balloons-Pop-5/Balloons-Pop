@@ -1,13 +1,14 @@
 ﻿namespace BalloonsPop.Console.ConsoleUI.Playfield
 {
-    public class MediumPlayfieldFactory : PlayfieldFactory
+    public class MediumPlayfieldCreator : PlayfieldFactory
     {
         private const int Width = 7;
         private const int Height = 7;
 
         public override Playfield CreatePlayfield()
         {
-            return new Playfield(Width, Height);
+            var mediumPlayfield = new Playfield(Width, Height);
+            return mediumPlayfield;
         }
     }
 }
