@@ -21,19 +21,6 @@
             this.Width = Playfield.InitialWidth;
         }
 
-        // TODO: check if needed!
-        /*public Playfield(int height)
-        {
-            this.Height = height;
-            this.Width = Playfield.InitialWidth;
-        }
-
-        public Playfield(int width)
-        {
-            this.Height = Playfield.InitialHeight;
-            this.Width = width;
-        }
-        */
         public Playfield(int height, int width)
         {
             this.Height = height;
@@ -53,10 +40,6 @@
 
             private set
             {
-                // if(Validator.IsNull(value))
-                // {
-                //     throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Height"));
-                // }
                 if (Validator.IsPositiveInteger(value))
                 {
                     throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "Playfield.Height"));
@@ -75,10 +58,6 @@
 
             private set
             {
-                // if (Validator.IsNull(value))
-                // {
-                //     throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield.Width"));
-                // }
                 if (Validator.IsPositiveInteger(value))
                 {
                     throw new NotPositiveIntegerException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.MustBeAPositiveInteger, "Playfield.Width"));
@@ -97,10 +76,6 @@
 
             private set
             {
-                // if (Validator.IsNull(value))
-                // {
-                //     throw new CannotBeNullException(string.Format(BalloonsPop.Common.Constants.GlobalErrorMessages.CannotBeNullFormat, "Playfield"));
-                // }
                 this.field = value;
             }
         }

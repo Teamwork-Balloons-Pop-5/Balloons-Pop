@@ -51,7 +51,7 @@
         public void Start()
         {
             var playfield = this.InitializePlayfield();
-            var gamePopLogic = new MovingPopStrategy();
+            var gamePopLogic = new RecursivePopStrategy();
 
             this.InitializeGame(playfield, gamePopLogic);
             Console.Clear();
