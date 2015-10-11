@@ -118,8 +118,9 @@
 
         public void Load()
         {
-            Console.SetWindowSize(GlobalGameLogicDependencesValues.WindowWidth, 
-                                  GlobalGameLogicDependencesValues.WindowHeight);
+            Console.SetWindowSize(
+                GlobalGameLogicDependencesValues.WindowWidth, 
+                GlobalGameLogicDependencesValues.WindowHeight);
 
             this.PrintMenuHeader();
             this.PrintMenuBody();
