@@ -4,14 +4,15 @@
     using System.Collections.Generic;
 
     using BalloonsPop.Console.ConsoleIO;
+    using BalloonsPop.Console.ConsoleIO.Reader;
 
     public class Chart
     {
         public static void SortAndPrintChartFive(int spentMoves)
         {
             // To do: get current score
-            var consoleInut = new ConsoleInput();
-            var userName = consoleInut.ReadUserName();
+            var consoleInut = new Reader().ReadUserInput();
+            var userName = new Reader().ReadUsername();
             var currentScore = new Highscore(userName, spentMoves); // get current score
             var scores = GetHighScoresFromFile(); // read from file
             var results = new List<Highscore>();

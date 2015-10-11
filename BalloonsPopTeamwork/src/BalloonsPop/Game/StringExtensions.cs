@@ -2,6 +2,7 @@
 {
     using System;
     using BalloonsPop.Console.ConsoleIO;
+    using BalloonsPop.Console.ConsoleIO.Reader;
 
     public static class StringExtensions
     {
@@ -16,7 +17,7 @@
                 if (chart[i, 0] == null)
                 {
                     Console.WriteLine("Type in your name.");
-                    string tempUserName = new ConsoleInput().ReadUserName();
+                    string tempUserName = new Reader().ReadUsername();
                     chart[i, 0] = points.ToString();
                     chart[i, 1] = tempUserName;
                     skilled = true;

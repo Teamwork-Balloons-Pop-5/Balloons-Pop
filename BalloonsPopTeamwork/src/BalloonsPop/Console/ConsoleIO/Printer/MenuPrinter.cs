@@ -32,28 +32,30 @@
         // Finished
         private void PrintMenuHeader()
         {
-            this.PrintTextWithColor(ConsoleColor.White, BorderTop);
-            this.PrintTextWithColor(ConsoleColor.Yellow, GameTitle.GameTitlePartOne);
-            this.PrintTextWithColor(ConsoleColor.Red, GameTitle.GameTitlePartTwo, GameTitle.GameTitlePartThree);
-            this.PrintTextWithColor(ConsoleColor.Green, GameTitle.GameTitlePartFour, GameTitle.GameTitlePartFive);
-            this.PrintTextWithColor(ConsoleColor.DarkBlue, GameTitle.GameTitlePartSix, GameTitle.GameTitlePartSeven);
-            this.PrintTextWithColor(ConsoleColor.White, BorderBottom);
+            this.PrintTextWithColor(ConsoleColor.White, true, BorderTop);
+            this.PrintTextWithColor(ConsoleColor.Yellow, true, GameTitle.GameTitlePartOne);
+            this.PrintTextWithColor(ConsoleColor.Red, true, GameTitle.GameTitlePartTwo, GameTitle.GameTitlePartThree);
+            this.PrintTextWithColor(ConsoleColor.Green, true, GameTitle.GameTitlePartFour, GameTitle.GameTitlePartFive);
+            this.PrintTextWithColor(ConsoleColor.DarkBlue, true, GameTitle.GameTitlePartSix, GameTitle.GameTitlePartSeven);
+            this.PrintTextWithColor(ConsoleColor.White, true, BorderBottom);
         }
 
         // Finished
         private void PrintMenuBody()
         {
             this.PrintTextWithColor(
-                ConsoleColor.White,
+                ConsoleColor.White, 
+                          true,
                           WelcomeGameMessage,
                           AimOfGameMessage,
                           HowToPlayMessage,
                           EmptyTextLine);
 
-            this.PrintTextWithColor(ConsoleColor.DarkBlue, ChooseGameModeMessage, EmptyTextLine);
+            this.PrintTextWithColor(ConsoleColor.DarkBlue, true, ChooseGameModeMessage, EmptyTextLine);
 
             this.PrintTextWithColor(
                 ConsoleColor.Green,
+                          true,
                           GameModeEasy,
                           EmptyTextLine,
                           GameModeMedium,
@@ -61,7 +63,7 @@
                           GameModeHard,
                           EmptyTextLine);
 
-            this.PrintTextWithColor(ConsoleColor.White, BorderBottom);
+            this.PrintTextWithColor(ConsoleColor.White, true, BorderBottom);
         }
 
         // Finished
@@ -74,23 +76,31 @@
         // Finished
         private void PrintMenuFooter()
         {
-            this.PrintTextWithColor(ConsoleColor.Yellow, SelecGameModeMessage);
+            this.PrintTextWithColor(ConsoleColor.Yellow, false, SelecGameModeMessage);
         }
 
         // Finished
-        private void PrintTextWithColor(ConsoleColor color, params string[] messages)
+        private void PrintTextWithColor(ConsoleColor color, bool hasNewLine = true, params string[] messages)
         {
             Console.ForegroundColor = color;
 
             foreach (var message in messages)
             {
-                this.PrintTextLine(message);
+                if (hasNewLine)
+                {
+                    this.PrintTextLine(message);
+                }
+                else
+                {
+                    this.PrintText(message);
+                }
             }
         }
 
         // Finished
         public override void Print(params object[] objs)
         {
+            Console.Clear();
             this.SetMenuSize();
             this.PrintMenuHeader();
             this.PrintMenuBody();

@@ -19,6 +19,11 @@
             {
                 userInput = Console.ReadLine();
                 validGameMode = int.TryParse(userInput, out gameMode);
+
+                if (gameMode <= 3 || gameMode >= 1)
+                {
+                    break;
+                }
             }
 
             Console.Clear();
@@ -29,16 +34,17 @@
         // Finished
         public string ReadUsername()
         {
-            string username = Console.ReadLine();
+            string username = string.Empty;
             var isCorrect = false;
 
-            while (!isCorrect)
+            do
             {
                 username = Console.ReadLine();
                 isCorrect = Validator.IsStringLenghtValid(username,
                                                           GlobalGameLogicDependencesValues.MinUsernameLength,
                                                           GlobalGameLogicDependencesValues.MaxUsernameLength);
             }
+            while (!isCorrect);
 
             return username;
         }

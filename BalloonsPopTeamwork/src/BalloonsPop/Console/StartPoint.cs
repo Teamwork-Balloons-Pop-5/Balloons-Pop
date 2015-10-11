@@ -10,8 +10,8 @@
     {        
         public static void Main()
         {
-            var menu = new Menu();
-            menu.Load();
+            // var menu = new Menu();
+            // menu.Load();
             Engine.Instance.Start();
 
             Console.WriteLine(GlobalGameMessages.ExitGameMessage);

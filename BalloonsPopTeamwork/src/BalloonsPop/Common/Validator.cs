@@ -37,7 +37,7 @@
 
         public static bool IsStringLenghtValid(string argument, int minLenght, int maxLenght)
         {
-            if (argument.Length < minLenght || argument.Length > maxLenght)
+            if (argument.Length >= minLenght && argument.Length <= maxLenght)
             {
                 return true;
             }
