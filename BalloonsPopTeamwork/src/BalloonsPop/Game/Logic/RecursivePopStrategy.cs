@@ -1,15 +1,24 @@
-﻿namespace BalloonsPop.Game.Logic
+﻿// <copyright  file="RecursivePopStrategy.cs" company="Balloons-Pop-5">
+// All rights reserved.
+// </copyright>
+// <author>DimitarSD, alexizvely, fr0wsTyl</author>
+
+namespace BalloonsPop.Game.Logic
 {
     using BalloonsPop.Console.ConsoleUI.Playfield;
 
+    /// <summary>
+    /// instance for PopStrategy
+    /// </summary>
     public class RecursivePopStrategy : IPopStrategy
     {
         /// <summary>
-        /// Represents the recursive logic for popping the balloons
+        /// count of balloons
         /// </summary>
-        /// <param name="row"></param>
-        /// <param name="col"></param>
-        /// <param name="playfield"></param>
+        /// <param name="row">int for cell position</param>
+        /// <param name="col">int for cell position</param>
+        /// <param name="playfield">object that contains the playfield matrics form type Playfield</param>
+        /// <returns></returns>
         public int PopBaloons(int row, int col, Playfield playfield)
         {
             bool isRowValid = row >= 0 && row < playfield.Height;
@@ -32,6 +41,14 @@
             return 0;
         }
 
+        /// <summary>
+        /// counts how many balloons have been popped in the current move
+        /// </summary>
+        /// <param name="row">int for cell position</param>
+        /// <param name="col">int for cell position</param>
+        /// <param name="playfield">object that contains the playfield matrics form type Playfield</param>
+        /// <param name="selectedCellValue">string for the user input for which balloon to be popped</param>
+        /// <returns>int of count of popped ballons within the current move</returns>
         private int PopBaloons(int row, int col, Playfield playfield, string selectedCellValue = null)
         {
             int poppedBaloons = 0;
