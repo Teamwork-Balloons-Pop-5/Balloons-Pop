@@ -1,7 +1,6 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
-
     using BalloonsPop.Console.ConsoleIO;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine.Contracts;
@@ -14,6 +13,7 @@
     using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Common.Constants;
     using BalloonsPop.Common;
+    using BalloonsPop.Console.ConsoleUI.Menu;
 
     public class Engine : IEngine
     {
@@ -32,7 +32,6 @@
         private IReader reader = new Reader();
         private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
 
-<<<<<<< HEAD
         // ConsoleIO
         // private ConsoleOutput consoleOutput = new ConsoleOutput();
         // private ConsoleInput consoleInput = new ConsoleInput();
@@ -54,8 +53,6 @@
                 return engineInstance;
             }
         }
-=======
->>>>>>> c29913a61eac8794abe6d18b1a720ba89fd37cd6
 
         // Finished
         private bool IsFinished

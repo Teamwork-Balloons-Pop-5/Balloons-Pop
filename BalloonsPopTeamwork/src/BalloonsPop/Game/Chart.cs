@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-
     using BalloonsPop.Console.ConsoleIO;
     using BalloonsPop.Console.ConsoleIO.Reader;
 
@@ -10,7 +9,6 @@
     {
         public static void SortAndPrintChartFive(int spentMoves)
         {
-            // To do: get current score
             var consoleInut = new Reader().ReadUserInput();
             var userName = new Reader().ReadUsername();
             var currentScore = new Highscore(userName, spentMoves); // get current score
