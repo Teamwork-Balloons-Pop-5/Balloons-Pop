@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D253CA4B-71E4-441A-AB64-1A62AF0BBAA5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BalloonsPop</RootNamespace>
+    <AssemblyName>BalloonsPop</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PowerCollections">
+      <HintPath>..\packages\XAct.Wintellect.PowerCollections.0.0.1\lib\net20\PowerCollections.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Constants\GameTitle.cs" />
+    <Compile Include="Common\Constants\GlobalErrorMessages.cs" />
+    <Compile Include="Common\Constants\GlobalGameLogicDependencesValues.cs" />
+    <Compile Include="Common\Constants\GlobalGameMessages.cs" />
+    <Compile Include="Common\Constants\MatrixGraphicalInterface.cs" />
+    <Compile Include="Common\Constants\TopChartPrintingMessages.cs" />
+    <Compile Include="Common\Enum\BalloonType.cs" />
+    <Compile Include="Common\Enum\CommandType.cs" />
+    <Compile Include="Common\Enum\GameDifficulty.cs" />
+    <Compile Include="Common\Enum\ShootingDirection.cs" />
+    <Compile Include="Common\Exceptions\CannotBeNullException.cs" />
+    <Compile Include="Common\Exceptions\IntNotEqualOrGreaterThan.cs" />
+    <Compile Include="Common\Exceptions\NotPositiveIntegerException.cs" />
+    <Compile Include="Common\Exceptions\NotValidLenghtStringException.cs" />
+    <Compile Include="Common\Generator\RandomGenerator.cs" />
+    <Compile Include="Common\Validator.cs" />
+    <Compile Include="Console\ConsoleIO\Printer\MessagePrinter.cs" />
+    <Compile Include="Console\ConsoleIO\Printer\Contracts\IPrinter.cs" />
+    <Compile Include="Console\ConsoleIO\Printer\MenuPrinter.cs" />
+    <Compile Include="Console\ConsoleIO\Printer\PlayfieldPrinter.cs" />
+    <Compile Include="Console\ConsoleIO\Printer\Printer.cs" />
+    <Compile Include="Console\ConsoleIO\Printer\ScoreboardPrinter.cs" />
+    <Compile Include="Console\ConsoleIO\Reader\Reader.cs" />
+    <Compile Include="Console\ConsoleIO\Reader\Contracts\IReader.cs" />
+    <Compile Include="Console\ConsoleUI\Colors\BalloonColor.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\LargePlayfieldCreator.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\MediumPlayfieldCreator.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\Playfield.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\PlayfieldFactory.cs" />
+    <Compile Include="Console\ConsoleUI\Playfield\SmallPlayfieldCreator.cs" />
+    <Compile Include="Console\Game.cs" />
+    <Compile Include="Console\StartPoint.cs" />
+    <Compile Include="Engine\Contracts\IEngine.cs" />
+    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Game\Chart.cs" />
+    <Compile Include="Game\CheckCellInMatrix.cs" />
+    <Compile Include="Game\Commands\Contracts\ICommand.cs" />
+    <Compile Include="Game\Commands\ExitCommand.cs" />
+    <Compile Include="Game\Commands\RestartCommand.cs" />
+    <Compile Include="Game\Commands\SaveCommand.cs" />
+    <Compile Include="Game\Commands\TopCommand.cs" />
+    <Compile Include="Game\Highscore.cs" />
+    <Compile Include="Game\Logic\MovingPopStrategy.cs" />
+    <Compile Include="Game\Logic\RecursivePopStrategy.cs" />
+    <Compile Include="Game\Matrix.cs" />
+    <Compile Include="Game\Logic\IPopStrategy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
