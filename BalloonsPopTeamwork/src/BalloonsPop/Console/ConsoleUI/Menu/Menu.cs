@@ -1,28 +1,74 @@
-﻿namespace BalloonsPop.Console.ConsoleUI.Menu
+﻿// <copyright  file="Menu.cs" company="Balloons-Pop-5">
+// All rights reserved.
+// </copyright>
+// <author>DimitarSD, alexizvely, fr0wsTyl</author>
+
+namespace BalloonsPop.Console.ConsoleUI.Menu
 {
     using System;
-
     using Common.Constants;
 
+    /// <summary>
+    /// creates the Menu for the game
+    /// </summary>
     public class Menu
     {
+        /// <summary>
+        /// constant that holds the text for easy game mode
+        /// </summary>
         private const string GameModeEasy = "1. EASY";
+        /// <summary>
+        /// constant that holds the text for medium game mode
+        /// </summary>
         private const string GameModeMedium = "2. MEDIUM";
+        /// <summary>
+        /// constant that holds the text for hard game mode
+        /// </summary>
         private const string GameModeHard = "3. HARD";
+        /// <summary>
+        /// constant that holds the text that welcomes the user into the game
+        /// </summary>
         private const string WelcomeGameMessage = "Welcome to the game of Balloons Pop.";
+        /// <summary>
+        /// constant that holds the text that explains the goal of the game to the user
+        /// </summary>
         private const string AimOfGameMessage = "The aim of the game is to pop all balloons.";
+        /// <summary>
+        /// constant that holds the text that serves as tutorial for the game
+        /// </summary>
         private const string HowToPlayMessage = "To do this you enter balloon coordinates in a turn-by-turn basis.";
+        /// <summary>
+        /// constant that holds the text for choose game mode
+        /// </summary>
         private const string ChooseGameModeMessage = "Please choose game mode";
+        /// <summary>
+        /// constant that holds empty text line
+        /// </summary>
         private const string EmptyTextLine = "";
+        /// <summary>
+        /// constant that holds the top border with the caption of the game
+        /// </summary>
         private const string BorderTop = GameTitle.GameTitleBorder + EmptyTextLine;
+        /// <summary>
+        /// constant that holds the bottom border with the caption of the game
+        /// </summary>
         private const string BorderBottom = EmptyTextLine + GameTitle.GameTitleBorder;
 
+        /// <summary>
+        /// This field holds the game mode of the game that corresponds to which playfield will be generated
+        /// </summary>
         private int gameMode;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Menu" /> class.
+        /// </summary>
         public Menu()
         {
         }
 
+        /// <summary>
+        /// Gets or sets the GameMode;
+        /// </summary>
         public int GameMode
         {
             get
@@ -31,6 +77,9 @@
             }
         }
 
+        /// <summary>
+        /// Prints the menu header to the console
+        /// </summary>
         public void PrintMenuHeader()
         {
             this.PrintGameText(ConsoleColor.White, BorderTop);
@@ -41,6 +90,9 @@
             this.PrintGameText(ConsoleColor.White, BorderBottom);
         }
 
+        /// <summary>
+        /// Prints the menu body to the console
+        /// </summary>
         public void PrintMenuBody()
         {
             this.PrintGameText(
@@ -64,6 +116,9 @@
             this.PrintGameText(ConsoleColor.White, BorderBottom);
         }
 
+        /// <summary>
+        /// Prints the menu footer to the console and asks the user to input game mode till it gets acceptable value
+        /// </summary>
         public void PrintMenuFooter()
         {
             string gameModeString = string.Empty;
@@ -116,6 +171,9 @@
             this.PrintMenuHeader();
         }
 
+        /// <summary>
+        /// sets the window size and prints the menu
+        /// </summary>
         public void Load()
         {
             Console.SetWindowSize(
@@ -126,16 +184,25 @@
             this.PrintMenuBody();
         }
 
+        /// <summary>
+        /// Centers the line messages in the console
+        /// </summary>
         private void CenterString(string text)
         {
             Console.WriteLine(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
+        /// <summary>
+        /// Centers the messages in the console
+        /// </summary>
         private void CenterStringWrite(string text)
         {
             Console.Write(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
         }
 
+        /// <summary>
+        /// Printer fo rthe messages in the game
+        /// </summary>
         private void PrintGameText(ConsoleColor color, params string[] text)
         {
             Console.ForegroundColor = color;

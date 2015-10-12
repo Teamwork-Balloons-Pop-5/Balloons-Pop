@@ -1,10 +1,21 @@
-﻿namespace BalloonsPop.Console.ConsoleUI.Colors
+﻿// <copyright  file="BalloonColor.cs" company="Balloons-Pop-5">
+// All rights reserved.
+// </copyright>
+// <author>DimitarSD, alexizvely, fr0wsTyl</author>
+
+namespace BalloonsPop.Console.ConsoleUI.Colors
 {
     using System;
 
+    /// <summary>
+    /// creates the BalloonColor holder for the balloons colours
+    /// </summary>
     public class BalloonColor
     {
-        // Finished
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Playfield" /> class.
+        /// </summary>
+        /// <param name="currentBalloon">string that holds the value of the current balloon. The value determines the colour of the balloon</param>
         public void PaintBalloon(string currentBalloon)
         {
             switch (currentBalloon)
@@ -24,7 +35,9 @@
             }
         }
 
-        // Finished
+        /// <summary>
+        /// sets and prints the balloon colour
+        /// </summary>
         private void SetColor(ConsoleColor balloonColor, string balloonDigit, ConsoleColor textColor)
         {
             Console.ForegroundColor = balloonColor;
