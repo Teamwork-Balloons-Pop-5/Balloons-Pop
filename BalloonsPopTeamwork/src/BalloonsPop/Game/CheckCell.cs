@@ -11,7 +11,7 @@ namespace BalloonsPop.Game
     /// <summary>
     /// creates instance of the logical checker wether a cell is within the genaretd playfield matrix
     /// </summary>
-    public class CheckCellInMatrix
+    public class CheckCell
     {
         /// <summary>
         /// checks the cells to the left
@@ -20,7 +20,7 @@ namespace BalloonsPop.Game
         /// <param name="row">takes the playfield size</param>
         /// <param name="column">takes the playfield size</param>
         /// <param name="searchedItem">string with the cell that we check for</param>
-        public static void CheckLeft(Playfield balloonsMatrix, int row, int column, string searchedItem)
+        public void CheckLeft(Playfield balloonsMatrix, int row, int column, string searchedItem)
         {
             int newRow = row;
             int newColumn = column - 1;
@@ -29,7 +29,7 @@ namespace BalloonsPop.Game
                 if (balloonsMatrix.Field[newRow, newColumn] == searchedItem)
                 {
                     balloonsMatrix.Field[newRow, newColumn] = "0";
-                    CheckLeft(balloonsMatrix, newRow, newColumn, searchedItem);
+                    this.CheckLeft(balloonsMatrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {
@@ -49,7 +49,7 @@ namespace BalloonsPop.Game
         /// <param name="row">takes the playfield size</param>
         /// <param name="column">takes the playfield size</param>
         /// <param name="searchedItem">string with the cell that we check for</param>
-        public static void CheckRight(Playfield balloonsMatrix, int row, int column, string searchedItem)
+        public void CheckRight(Playfield balloonsMatrix, int row, int column, string searchedItem)
         {
             int newRow = row;
             int newColumn = column + 1;
@@ -58,7 +58,7 @@ namespace BalloonsPop.Game
                 if (balloonsMatrix.Field[newRow, newColumn] == searchedItem)
                 {
                     balloonsMatrix.Field[newRow, newColumn] = "0";
-                    CheckRight(balloonsMatrix, newRow, newColumn, searchedItem);
+                    this.CheckRight(balloonsMatrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {
@@ -78,7 +78,7 @@ namespace BalloonsPop.Game
         /// <param name="row">takes the playfield size</param>
         /// <param name="column">takes the playfield size</param>
         /// <param name="searchedItem">string with the cell that we check for</param>
-        public static void CheckUp(Playfield balloonsMatrix, int row, int column, string searchedItem)
+        public void CheckUp(Playfield balloonsMatrix, int row, int column, string searchedItem)
         {
             int newRow = row + 1;
             int newColumn = column;
@@ -87,7 +87,7 @@ namespace BalloonsPop.Game
                 if (balloonsMatrix.Field[newRow, newColumn] == searchedItem)
                 {
                     balloonsMatrix.Field[newRow, newColumn] = "0";
-                    CheckUp(balloonsMatrix, newRow, newColumn, searchedItem);
+                    this.CheckUp(balloonsMatrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {
@@ -107,7 +107,7 @@ namespace BalloonsPop.Game
         /// <param name="row">takes the playfield size</param>
         /// <param name="column">takes the playfield size</param>
         /// <param name="searchedItem">string with the cell that we check for</param>
-        public static void CheckDown(Playfield balloonsMatrix, int row, int column, string searchedItem)
+        public void CheckDown(Playfield balloonsMatrix, int row, int column, string searchedItem)
         {
             int newRow = row - 1;
             int newColumn = column;
@@ -116,7 +116,7 @@ namespace BalloonsPop.Game
                 if (balloonsMatrix.Field[newRow, newColumn] == searchedItem)
                 {
                     balloonsMatrix.Field[newRow, newColumn] = "0";
-                    CheckDown(balloonsMatrix, newRow, newColumn, searchedItem);
+                    this.CheckDown(balloonsMatrix, newRow, newColumn, searchedItem);
                 }
                 else
                 {

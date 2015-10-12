@@ -13,7 +13,6 @@ namespace BalloonsPop.Console
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine;
     using BalloonsPop.Engine.Contracts;
-    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
 

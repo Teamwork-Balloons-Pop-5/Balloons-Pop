@@ -12,6 +12,8 @@ namespace BalloonsPop.Game
     /// </summary>
     public class Matrix
     {
+        private CheckCell currentCell = new CheckCell();
+
         /// <summary>
         /// checks wether the matrix needs to be modified
         /// </summary>
@@ -19,7 +21,7 @@ namespace BalloonsPop.Game
         /// <param name="row">matrix size</param>
         /// <param name="column">matrix size</param>
         /// <returns>bool value</returns>
-        public static bool ChangeMatrix(Playfield matrixToModify, int row, int column)
+        public bool ChangeMatrix(Playfield matrixToModify, int row, int column)
         {
             if (matrixToModify.Field[row, column] == "0")
             {
@@ -30,11 +32,11 @@ namespace BalloonsPop.Game
 
             matrixToModify.Field[row, column] = "0";
 
-            CheckCellInMatrix.CheckLeft(matrixToModify, row, column, searchedTarget);
-            CheckCellInMatrix.CheckRight(matrixToModify, row, column, searchedTarget);
+            this.currentCell.CheckLeft(matrixToModify, row, column, searchedTarget);
+            this.currentCell.CheckRight(matrixToModify, row, column, searchedTarget);
 
-            CheckCellInMatrix.CheckUp(matrixToModify, row, column, searchedTarget);
-            CheckCellInMatrix.CheckDown(matrixToModify, row, column, searchedTarget);
+            this.currentCell.CheckUp(matrixToModify, row, column, searchedTarget);
+            this.currentCell.CheckDown(matrixToModify, row, column, searchedTarget);
 
             return false;
         }

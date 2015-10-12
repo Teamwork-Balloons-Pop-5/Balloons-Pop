@@ -4,6 +4,12 @@
 
     public class RecursivePopStrategy : IPopStrategy
     {
+        /// <summary>
+        /// Represents the recursive logic for popping the balloons
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="col"></param>
+        /// <param name="playfield"></param>
         public int PopBaloons(int row, int col, Playfield playfield)
         {
             bool isRowValid = row >= 0 && row < playfield.Height;

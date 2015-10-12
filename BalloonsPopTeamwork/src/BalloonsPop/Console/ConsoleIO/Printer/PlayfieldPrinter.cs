@@ -35,7 +35,7 @@ namespace BalloonsPop.Console.ConsoleIO.Printer
         /// <summary>
         /// Prints an object array
         /// </summary>
-        /// <param name="objs">takes object array and prints it</param>
+        /// <param name="arguments">takes object array and prints it</param>
         public override void Print(params object[] arguments)
         {
             // TODO: Need to refactor the code inside

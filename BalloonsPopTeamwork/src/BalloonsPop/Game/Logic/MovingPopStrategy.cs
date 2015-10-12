@@ -7,6 +7,8 @@
 
     public class MovingPopStrategy : IPopStrategy
     {
+        private Matrix playfieldMatrix = new Matrix();
+
         public int PopBaloons(int row, int col, Playfield playfield)
         {
             bool isRowValid = row >= 0 && row < playfield.Height;
@@ -39,13 +41,14 @@
             {
                 if (playfield.Field[row, col] == selectedCellValue)
                 {
-                    Matrix.ChangeMatrix(playfield, row, col);
+                    this.playfieldMatrix.ChangeMatrix(playfield, row, col);
                     poppedBaloons++;
 
                     poppedBaloons += this.PopBaloons(row - 1, col, playfield, selectedCellValue);
                     poppedBaloons += this.PopBaloons(row + 1, col, playfield, selectedCellValue);
                     poppedBaloons += this.PopBaloons(row, col + 1, playfield, selectedCellValue);
                     poppedBaloons += this.PopBaloons(row, col - 1, playfield, selectedCellValue);
+
                     this.FallBalloons(playfield);
                 }
             }
@@ -53,7 +56,6 @@
             return poppedBaloons;
         }
 
-        // This is a complex algorithm
         private void FallBalloons(Playfield matrix)
         {
             Stack<string> columnValues = new Stack<string>();
