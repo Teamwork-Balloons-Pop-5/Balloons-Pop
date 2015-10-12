@@ -3,12 +3,12 @@
 // </copyright>
 // <author>DimitarSD, alexizvely, fr0wsTyl</author>
 
+using BalloonsPop.Engine.Contracts;
 namespace BalloonsPop.Console
 {
     /// <summary>
     /// The facade for the game
     /// </summary>
-{   
     using BalloonsPop.Console.ConsoleIO.Printer;
     using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Console.ConsoleIO.Reader;

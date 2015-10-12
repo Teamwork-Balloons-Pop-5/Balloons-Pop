@@ -3,9 +3,9 @@
     using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class TopCommand : Command
+    public class TopCommand : ICommand
     {
-        public override void Execute()
+        public void Execute()
         {
             throw new System.NotImplementedException();
         }
