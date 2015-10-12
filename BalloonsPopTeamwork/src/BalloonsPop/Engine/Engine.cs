@@ -1,19 +1,19 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
-
+    using BalloonsPop.Common;
+    using BalloonsPop.Common.Constants;
     using BalloonsPop.Console.ConsoleIO;
+    using BalloonsPop.Console.ConsoleIO.Printer;
+    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
+    using BalloonsPop.Console.ConsoleIO.Reader;
+    using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
+    using BalloonsPop.Console.ConsoleUI.Colors;
+    using BalloonsPop.Console.ConsoleUI.Menu;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
-    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
-    using BalloonsPop.Console.ConsoleIO.Printer;
-    using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
-    using BalloonsPop.Console.ConsoleIO.Reader;
-    using BalloonsPop.Console.ConsoleUI.Colors;
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Common;
 
     public class Engine : IEngine
     {
@@ -31,6 +31,27 @@
         private IReader reader = new Reader();
         private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
 
+        // ConsoleIO
+        // private ConsoleOutput consoleOutput = new ConsoleOutput();
+        // private ConsoleInput consoleInput = new ConsoleInput();
+        private Menu menu = new Menu();
+
+        private Engine()
+        {
+        }
+
+        public static Engine Instance
+        {
+            get
+            {
+                if (engineInstance == null)
+                {
+                    engineInstance = new Engine();
+                }
+
+                return engineInstance;
+            }
+        }
 
         // Finished
         private bool IsFinished
@@ -69,7 +90,7 @@
         // Finished
         private Playfield InitializePlayfield()
         {
-            int playfieldSize = reader.ReadPlayfieldSize();
+            int playfieldSize = this.reader.ReadPlayfieldSize();
             bool isPlayfieldSizeCorrect = true;
 
             Playfield playfield = null;
@@ -153,7 +174,7 @@
         {
             try
             {
-                var splittedUserInput = input.Trim().Split(new char[] {' ', ',', '.', '/'});
+                var splittedUserInput = input.Trim().Split(new char[] { ' ', ',', '.', '/' });
 
                 string row = splittedUserInput[0];
                 string column = splittedUserInput[1];
@@ -238,6 +259,5 @@
                 return false;
             }
         }
-
     }
 }

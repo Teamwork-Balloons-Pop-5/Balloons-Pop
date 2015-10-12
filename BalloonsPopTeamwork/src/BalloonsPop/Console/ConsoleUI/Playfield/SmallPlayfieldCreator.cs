@@ -14,6 +14,7 @@ namespace BalloonsPop.Console.ConsoleUI.Playfield
         /// The constant holds the height of the playfield matrix
         /// </summary>
         private const int Height = 4;
+
         /// <summary>
         /// The constant holds the width of the playfield matrix
         /// </summary>

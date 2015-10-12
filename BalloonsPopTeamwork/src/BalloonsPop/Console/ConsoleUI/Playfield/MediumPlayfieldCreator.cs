@@ -5,7 +5,6 @@
 
 namespace BalloonsPop.Console.ConsoleUI.Playfield
 {
-
     /// <summary>
     /// creates the small matrix playfield, where the balloons are stored for the game
     /// </summary>
@@ -15,6 +14,7 @@ namespace BalloonsPop.Console.ConsoleUI.Playfield
         /// The constant holds the height of the playfield matrix
         /// </summary>
         private const int Height = 7;
+
         /// <summary>
         /// The constant holds the width of the playfield matrix
         /// </summary>
@@ -23,7 +23,6 @@ namespace BalloonsPop.Console.ConsoleUI.Playfield
         /// <summary>
         /// Creates the playfield matrix with the balloons in it
         /// </summary>
-        // Finished
         public override Playfield CreatePlayfield()
         {
             var mediumPlayfield = new Playfield(Width, Height);

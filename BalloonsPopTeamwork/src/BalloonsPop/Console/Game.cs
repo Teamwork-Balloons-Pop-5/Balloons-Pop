@@ -8,30 +8,28 @@ namespace BalloonsPop.Console
     /// <summary>
     /// The facade for the game
     /// </summary>
+{   
     using BalloonsPop.Console.ConsoleIO.Printer;
     using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Console.ConsoleIO.Reader;
     using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
     using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Console.ConsoleUI.Playfield;
-    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Engine;
+    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
 
-    // Facade
+    /// <summary>
+    /// The facade for the game
+    /// </summary>
     public class Game
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Game" /> class.
-        /// </summary>
+    {     
         private IEngine engine;
         private Playfield playfield;
         private IPopStrategy gamePopLogic;
-
         private int balloonsLeft;
         private int userMoves;
-
         private IPrinter menuPrinter;
         private IPrinter playfieldPrinter;
         private BalloonColor colors;
@@ -40,6 +38,9 @@ namespace BalloonsPop.Console
         private IReader reader;
         private OrderedMultiDictionary<int, string> statistics;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Game" /> class.
+        /// </summary>
         public Game()
         {
             this.engine = new Engine();
