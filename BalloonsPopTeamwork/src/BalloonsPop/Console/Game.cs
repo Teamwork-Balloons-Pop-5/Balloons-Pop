@@ -1,5 +1,13 @@
-﻿namespace BalloonsPop.Console
+﻿// <copyright  file="Game.cs" company="Balloons-Pop-5">
+// All rights reserved.
+// </copyright>
+// <author>DimitarSD, alexizvely, fr0wsTyl</author>
+
+namespace BalloonsPop.Console
 {
+    /// <summary>
+    /// The facade for the game
+    /// </summary>
     using BalloonsPop.Console.ConsoleIO.Printer;
     using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Console.ConsoleIO.Reader;
@@ -14,6 +22,9 @@
     // Facade
     public class Game
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Game" /> class.
+        /// </summary>
         private IEngine engine;
         private Playfield playfield;
         private IPopStrategy popLogic;
@@ -31,9 +42,11 @@
 
         public Game()
         {
-
         }
 
+        /// <summary>
+        /// Starts the game
+        /// </summary>
         public void Start()
         {
             this.engine = new Engine();
