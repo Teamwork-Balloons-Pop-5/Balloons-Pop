@@ -2,7 +2,6 @@
 // All rights reserved.
 // </copyright>
 // <author>DimitarSD, alexizvely, fr0wsTyl</author>
-
 ﻿namespace BalloonsPop.Console.ConsoleIO.Reader
 {
     using System;
