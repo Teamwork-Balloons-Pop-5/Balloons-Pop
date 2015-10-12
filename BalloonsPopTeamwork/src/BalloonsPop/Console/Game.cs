@@ -4,10 +4,7 @@
 // <author>DimitarSD, alexizvely, fr0wsTyl</author>
 
 namespace BalloonsPop.Console
-{
-    /// <summary>
-    /// The facade for the game
-    /// </summary>
+{   
     using BalloonsPop.Console.ConsoleIO.Printer;
     using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Console.ConsoleIO.Reader;
@@ -19,19 +16,16 @@ namespace BalloonsPop.Console
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
 
-    // Facade
+    /// <summary>
+    /// The facade for the game
+    /// </summary>
     public class Game
-    {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Game" /> class.
-        /// </summary>
+    {     
         private IEngine engine;
         private Playfield playfield;
         private IPopStrategy popLogic;
-
         private int balloonsLeft;
         private int userMoves;
-
         private IPrinter menuPrinter = new MenuPrinter();
         private IPrinter playfieldPrinter = new PlayfieldPrinter();
         private BalloonColor colors = new BalloonColor();
@@ -40,6 +34,9 @@ namespace BalloonsPop.Console
         private IReader reader = new Reader();
         private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Game" /> class.
+        /// </summary>
         public Game()
         {
         }
