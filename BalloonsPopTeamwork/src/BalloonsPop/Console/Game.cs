@@ -3,12 +3,8 @@
 // </copyright>
 // <author>DimitarSD, alexizvely, fr0wsTyl</author>
 
-using BalloonsPop.Engine.Contracts;
 namespace BalloonsPop.Console
 {
-    /// <summary>
-    /// The facade for the game
-    /// </summary>
     using BalloonsPop.Console.ConsoleIO.Printer;
     using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Console.ConsoleIO.Reader;
@@ -16,6 +12,7 @@ namespace BalloonsPop.Console
     using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine;
+    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
@@ -44,7 +41,7 @@ namespace BalloonsPop.Console
         public Game()
         {
             this.engine = new Engine();
-            this.menuPrinter = new MenuPrinter();;
+            this.menuPrinter = new MenuPrinter();
             this.playfieldPrinter = new PlayfieldPrinter();
             this.messagePrinter = new MessagePrinter();
             this.scoreboardPrinter = new ScoreboardPrinter();

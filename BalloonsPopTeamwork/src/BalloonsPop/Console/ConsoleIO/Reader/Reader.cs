@@ -44,7 +44,7 @@
                     GlobalGameLogicDependencesValues.MinUsernameLength,
                     GlobalGameLogicDependencesValues.MaxUsernameLength);
             }
-            while (!isCorrect);
+            while (isCorrect);
 
             return username;
         }

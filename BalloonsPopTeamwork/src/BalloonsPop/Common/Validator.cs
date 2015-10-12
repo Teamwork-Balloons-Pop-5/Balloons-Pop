@@ -39,10 +39,10 @@
         {
             if (argument.Length >= minLenght && argument.Length <= maxLenght)
             {
-                return true;
+                return false;
             }
 
-            return false;
+            return true;
         }
 
         public static bool IsValidRowAndColumn(string row, string column)

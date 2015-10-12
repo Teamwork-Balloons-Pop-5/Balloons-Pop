@@ -39,7 +39,8 @@
             }
         }
 
-        public void Run(Playfield playfield,
+        public void Run(
+                    Playfield playfield,
                         IPopStrategy gamePopLogic, 
                         BalloonColor colors,
                         IPrinter menuPrinter, 
