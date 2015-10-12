@@ -5,6 +5,7 @@
         private const int Width = 4;
         private const int Height = 4;
 
+        // Finished
         public override Playfield CreatePlayfield()
         {
             var smallPlayfield = new Playfield(Width, Height);

@@ -3,7 +3,6 @@
     using System;
 
     using BalloonsPop.Console.ConsoleIO;
-    using BalloonsPop.Console.ConsoleUI.Menu;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
@@ -14,8 +13,9 @@
     using BalloonsPop.Console.ConsoleIO.Reader;
     using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Common.Constants;
+    using BalloonsPop.Common;
 
-    public sealed class Engine : IEngine
+    public class Engine : IEngine
     {
         private const string UserInputMessage = "Enter your choise: ";
 
@@ -32,28 +32,8 @@
         private IReader reader = new Reader();
         private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
 
-        // ConsoleIO
-        // private ConsoleOutput consoleOutput = new ConsoleOutput();
-        //private ConsoleInput consoleInput = new ConsoleInput();
-        private Menu menu = new Menu();
 
-        private Engine()
-        {
-        }
-
-        public static Engine Instance
-        {
-            get
-            {
-                if (engineInstance == null)
-                {
-                    engineInstance = new Engine();
-                }
-
-                return engineInstance;
-            }
-        }
-
+        // Finished
         private bool IsFinished
         {
             get
@@ -62,18 +42,19 @@
             }
         }
 
-        public void Start()
+        public void Run(Playfield playfield, IPopStrategy gamePopLogic, BalloonColor colors)
         {
             this.menuPrinter.Print();
 
-            var playfield = this.InitializePlayfield();
-            var gamePopLogic = new MovingPopStrategy();
+            playfield = this.InitializePlayfield();
+            gamePopLogic = new RecursivePopStrategy();
 
             this.InitializeGame(playfield, gamePopLogic);
-            this.playfieldPrinter.Print(this.playfield, this.colors);
+            this.playfieldPrinter.Print(playfield, colors);
             this.PlayGame();
         }
 
+        // Finished
         private void InitializeGame(Playfield gamePlayfield, IPopStrategy gamePopLogic)
         {
             this.playfield = gamePlayfield;
@@ -135,7 +116,7 @@
 
             this.scoreboardPrinter.Print(this.statistics);
 
-            this.ProcessUserDescision();
+            this.ProcessUserDecision();
         }
 
         private void ProcessInput(string input)
@@ -146,7 +127,7 @@
                     this.scoreboardPrinter.Print(this.statistics);
                     break;
                 case "restart":
-                    this.Start();
+                    this.Run();
                     break;
                 case "exit":
                     this.Exit();
@@ -164,17 +145,29 @@
             Environment.Exit(0);
         }
 
+        // Finished
         private void ProcessInputBalloonPosition(string input)
         {
             try
             {
-                var splittedUserInput = input.Split(' ');
+                var splittedUserInput = input.Trim().Split(new char[] {' ', ',', '.', '/'});
+
+                string row = splittedUserInput[0];
+                string column = splittedUserInput[1];
+
+                bool areValid = Validator.IsValidRowAndColumn(row, column);
+
+                if (!areValid)
+                {
+                    this.messagePrinter.Print(GlobalGameMessages.WrongInputMessage);
+                }
+
                 int currentRow = int.Parse(splittedUserInput[0]);
                 int currentCol = int.Parse(splittedUserInput[1]);
 
                 if (this.IsLegalMove(currentRow, currentCol))
                 {
-                    this.RemoveAllBaloons(currentRow, currentCol);
+                    this.RemovePoppedBalloons(currentRow, currentCol);
                 }
                 else
                 {
@@ -183,18 +176,17 @@
             }
             catch (FormatException)
             {
-                // extract to consoleIO or remove
-                Console.WriteLine("Row and col are not entered in the valid format.");
+                this.messagePrinter.Print("Row and col are not entered in the valid format.");
                 this.messagePrinter.Print(GlobalGameMessages.WrongInputMessage);
             }
             catch (IndexOutOfRangeException)
             {
-                // extract to ConsoleIOFacade or remove
-                Console.WriteLine("You did not enter two numbers for row and col.");
+                this.messagePrinter.Print("You did not enter two numbers for row and col.");
                 this.messagePrinter.Print(GlobalGameMessages.WrongInputMessage);
             }
         }
 
+        // Finished
         private void AddUserToScoreboard()
         {
             string message = string.Format(GlobalGameMessages.InTopFiveWinningMessage, this.userMoves);
@@ -206,14 +198,15 @@
             this.statistics.Add(this.userMoves, username);
         }
 
-        private void ProcessUserDescision()
+        // Finished
+        private void ProcessUserDecision()
         {
             this.messagePrinter.Print("Do you want to play again: Yes/No");
-            string userDescision = Console.ReadLine().ToLower();
+            string userDescision = this.reader.ReadUserInput().ToLower();
 
             if (userDescision == "yes")
             {
-                this.Start();
+                this.Run();
             }
             else
             {
@@ -221,11 +214,13 @@
             }
         }
 
-        private void RemoveAllBaloons(int row, int col)
+        // Finished
+        private void RemovePoppedBalloons(int row, int col)
         {
             this.balloonsLeft -= this.popLogic.PopBaloons(row, col, this.playfield);
         }
 
+        // Finished
         private bool IsLegalMove(int row, int col)
         {
             bool isValidRow = (row >= 0) && (row < this.playfield.Height);
@@ -240,5 +235,6 @@
                 return false;
             }
         }
+
     }
 }

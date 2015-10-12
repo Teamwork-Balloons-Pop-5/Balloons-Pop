@@ -1,10 +1,11 @@
 ﻿namespace BalloonsPop.Game.Commands
 {
+    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class TopCommand : ICommand
+    public class TopCommand : Command
     {
-        public void Execute()
+        public override void Execute()
         {
             throw new System.NotImplementedException();
         }

@@ -1,7 +1,11 @@
 ﻿namespace BalloonsPop.Engine.Contracts
 {
+    using BalloonsPop.Console.ConsoleUI.Colors;
+    using BalloonsPop.Console.ConsoleUI.Playfield;
+    using BalloonsPop.Game.Logic;
+
     public interface IEngine
     {
-        void Start();
+        void Run(Playfield playfield, IPopStrategy gamePopLogic, BalloonColor colors);
     }
 }

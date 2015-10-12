@@ -86,7 +86,7 @@
             {
                 for (int col = 0; col < this.Width; col++)
                 {
-                    string digit = RandomGenerator.GetRandomInt();
+                    string digit = RandomGenerator.GetRandomBalloonDigit();
 
                     this.Field[row, col] = digit;
                 }

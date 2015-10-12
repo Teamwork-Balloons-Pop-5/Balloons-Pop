@@ -2,9 +2,9 @@
 {
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class SaveCommand : ICommand
+    public class SaveCommand : Command
     {
-        public void Execute()
+        public override void Execute()
         {
             throw new System.NotImplementedException();
         }
