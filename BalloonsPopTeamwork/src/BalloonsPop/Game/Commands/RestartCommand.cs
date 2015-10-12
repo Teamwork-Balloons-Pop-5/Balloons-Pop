@@ -2,9 +2,9 @@
 {
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class RestartCommand : ICommand
+    public class RestartCommand : Command
     {
-        public void Execute()
+        public override void Execute()
         {
             throw new System.NotImplementedException();
         }

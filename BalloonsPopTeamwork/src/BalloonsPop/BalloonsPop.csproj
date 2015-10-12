@@ -60,7 +60,6 @@
     <Compile Include="Common\Exceptions\NotValidLenghtStringException.cs" />
     <Compile Include="Common\Generator\RandomGenerator.cs" />
     <Compile Include="Common\Validator.cs" />
-    <Compile Include="Console\ConsoleIO\ConsoleOutput.cs" />
     <Compile Include="Console\ConsoleIO\Printer\MessagePrinter.cs" />
     <Compile Include="Console\ConsoleIO\Printer\Contracts\IPrinter.cs" />
     <Compile Include="Console\ConsoleIO\Printer\MenuPrinter.cs" />
@@ -70,7 +69,6 @@
     <Compile Include="Console\ConsoleIO\Reader\Reader.cs" />
     <Compile Include="Console\ConsoleIO\Reader\Contracts\IReader.cs" />
     <Compile Include="Console\ConsoleUI\Colors\BalloonColor.cs" />
-    <Compile Include="Console\ConsoleUI\Menu\Menu.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\LargePlayfieldCreator.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\MediumPlayfieldCreator.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\Playfield.cs" />
@@ -82,19 +80,16 @@
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Game\Chart.cs" />
     <Compile Include="Game\CheckCellInMatrix.cs" />
+    <Compile Include="Game\Commands\Command.cs" />
     <Compile Include="Game\Commands\Contracts\ICommand.cs" />
     <Compile Include="Game\Commands\ExitCommand.cs" />
     <Compile Include="Game\Commands\RestartCommand.cs" />
     <Compile Include="Game\Commands\SaveCommand.cs" />
     <Compile Include="Game\Commands\TopCommand.cs" />
-    <Compile Include="Game\GameLogic.cs" />
-    <Compile Include="Game\Generator.cs" />
     <Compile Include="Game\Highscore.cs" />
     <Compile Include="Game\Logic\MovingPopStrategy.cs" />
     <Compile Include="Game\Logic\RecursivePopStrategy.cs" />
     <Compile Include="Game\Matrix.cs" />
-    <Compile Include="Game\StringExtensions.cs" />
-    <Compile Include="Game\Winner.cs" />
     <Compile Include="Game\Logic\IPopStrategy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

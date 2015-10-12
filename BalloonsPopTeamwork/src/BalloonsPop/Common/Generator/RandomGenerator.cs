@@ -4,16 +4,17 @@
 
     public static class RandomGenerator
     {
-        private static Random r = new Random();
+        private static Random randomSymbol = new Random();
 
-        public static string GetRandomInt()
+        // Finished
+        public static string GetRandomBalloonDigit()
         {
             string legalChars = "1234";
-            string builder = null;
+            int index = randomSymbol.Next(0, legalChars.Length);
 
-            builder = legalChars[r.Next(0, legalChars.Length)].ToString();
+            string balloonDigit = legalChars[index].ToString();
 
-            return builder;
+            return balloonDigit;
         }
     }
 }

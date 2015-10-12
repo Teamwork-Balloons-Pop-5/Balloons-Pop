@@ -50,12 +50,6 @@
                         continue;
                     }
 
-                    // if (playfield.Field[i, j] == ".")
-                    // {
-                    //     this.PrintTextLine(playfield.Field[i, j]);
-                    // }
-
-                    // Set balloon color
                     colors.PaintBalloon(playfield.Field[row, column]);
                 }
 

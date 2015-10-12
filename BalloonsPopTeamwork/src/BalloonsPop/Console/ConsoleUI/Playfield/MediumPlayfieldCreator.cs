@@ -23,6 +23,7 @@ namespace BalloonsPop.Console.ConsoleUI.Playfield
         /// <summary>
         /// Creates the playfield matrix with the balloons in it
         /// </summary>
+        // Finished
         public override Playfield CreatePlayfield()
         {
             var mediumPlayfield = new Playfield(Width, Height);

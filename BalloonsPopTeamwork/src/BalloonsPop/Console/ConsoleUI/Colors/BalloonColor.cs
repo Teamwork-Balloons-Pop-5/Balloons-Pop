@@ -5,6 +5,7 @@
 
 namespace BalloonsPop.Console.ConsoleUI.Colors
 {
+    using BalloonsPop.Common.Enum;
     using System;
 
     /// <summary>

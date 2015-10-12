@@ -44,5 +44,18 @@
 
             return false;
         }
+
+        public static bool IsValidRowAndColumn(string row, string column)
+        {
+            bool isValidRow = row[0] >= '0' && row[0] <= '9';
+            bool isValidColumn = column[0] >= '0' && column[0] <= '9';
+
+            if (isValidRow && isValidColumn)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

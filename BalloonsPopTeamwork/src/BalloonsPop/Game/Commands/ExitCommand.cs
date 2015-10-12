@@ -2,9 +2,9 @@
 {
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class ExitCommand : ICommand
+    public class ExitCommand : Command
     {
-        public void Execute()
+        public override void Execute()
         {
             throw new System.NotImplementedException();
         }
