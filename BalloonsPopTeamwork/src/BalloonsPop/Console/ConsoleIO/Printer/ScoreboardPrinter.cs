@@ -30,6 +30,11 @@
 
             scoreboard.AppendLine("Scoreboard:");
 
+            if (statistics.Count == 0)
+            {
+                scoreboard.AppendLine("No players to show.");
+            }
+
             foreach (var player in statistics)
             {
                 if (counter == resultsCount)

@@ -27,21 +27,29 @@ namespace BalloonsPop.Console
         /// </summary>
         private IEngine engine;
         private Playfield playfield;
-        private IPopStrategy popLogic;
+        private IPopStrategy gamePopLogic;
 
         private int balloonsLeft;
         private int userMoves;
 
-        private IPrinter menuPrinter = new MenuPrinter();
-        private IPrinter playfieldPrinter = new PlayfieldPrinter();
-        private BalloonColor colors = new BalloonColor();
-        private IPrinter messagePrinter = new MessagePrinter();
-        private IPrinter scoreboardPrinter = new ScoreboardPrinter();
-        private IReader reader = new Reader();
-        private OrderedMultiDictionary<int, string> statistics = new OrderedMultiDictionary<int, string>(true);
+        private IPrinter menuPrinter;
+        private IPrinter playfieldPrinter;
+        private BalloonColor colors;
+        private IPrinter messagePrinter;
+        private IPrinter scoreboardPrinter;
+        private IReader reader;
+        private OrderedMultiDictionary<int, string> statistics;
 
         public Game()
         {
+            this.engine = new Engine();
+            this.menuPrinter = new MenuPrinter();;
+            this.playfieldPrinter = new PlayfieldPrinter();
+            this.messagePrinter = new MessagePrinter();
+            this.scoreboardPrinter = new ScoreboardPrinter();
+            this.reader = new Reader();
+            this.colors = new BalloonColor();
+            this.statistics = new OrderedMultiDictionary<int, string>(true);
         }
 
         /// <summary>
@@ -49,7 +57,7 @@ namespace BalloonsPop.Console
         /// </summary>
         public void Start()
         {
-            this.engine = new Engine();
+            this.engine.Run(this.playfield, this.gamePopLogic, this.colors, this.menuPrinter, this.playfieldPrinter);
         }
     }
 }

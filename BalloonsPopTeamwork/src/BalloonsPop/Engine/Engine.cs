@@ -19,7 +19,6 @@
     {
         private const string UserInputMessage = "Enter your choise: ";
 
-        private static Engine engineInstance;
         private Playfield playfield;
         private IPopStrategy popLogic;
         private int balloonsLeft;
@@ -42,15 +41,19 @@
             }
         }
 
-        public void Run(Playfield playfield, IPopStrategy gamePopLogic, BalloonColor colors)
+        public void Run(Playfield playfield,
+                        IPopStrategy gamePopLogic, 
+                        BalloonColor colors,
+                        IPrinter menuPrinter, 
+                        IPrinter playfieldPrinter)
         {
-            this.menuPrinter.Print();
+            menuPrinter.Print();
 
             playfield = this.InitializePlayfield();
             gamePopLogic = new RecursivePopStrategy();
 
             this.InitializeGame(playfield, gamePopLogic);
-            this.playfieldPrinter.Print(playfield, colors);
+            playfieldPrinter.Print(playfield, colors);
             this.PlayGame();
         }
 
@@ -127,7 +130,7 @@
                     this.scoreboardPrinter.Print(this.statistics);
                     break;
                 case "restart":
-                    this.Run();
+                    this.Run(this.playfield, this.popLogic, this.colors, this.menuPrinter, this.playfieldPrinter);
                     break;
                 case "exit":
                     this.Exit();
@@ -206,7 +209,7 @@
 
             if (userDescision == "yes")
             {
-                this.Run();
+                this.Run(this.playfield, this.popLogic, this.colors, this.menuPrinter, this.playfieldPrinter);
             }
             else
             {
