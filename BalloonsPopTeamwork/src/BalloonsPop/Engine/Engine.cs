@@ -9,7 +9,6 @@
     using BalloonsPop.Console.ConsoleIO.Reader;
     using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
     using BalloonsPop.Console.ConsoleUI.Colors;
-    using BalloonsPop.Console.ConsoleUI.Menu;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;

@@ -69,7 +69,6 @@
     <Compile Include="Console\ConsoleIO\Reader\Reader.cs" />
     <Compile Include="Console\ConsoleIO\Reader\Contracts\IReader.cs" />
     <Compile Include="Console\ConsoleUI\Colors\BalloonColor.cs" />
-    <Compile Include="Console\ConsoleUI\Menu\Menu.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\LargePlayfieldCreator.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\MediumPlayfieldCreator.cs" />
     <Compile Include="Console\ConsoleUI\Playfield\Playfield.cs" />
