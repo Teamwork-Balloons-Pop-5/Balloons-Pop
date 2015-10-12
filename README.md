@@ -1,4 +1,5 @@
 <h1 align="center">Balloons Pop Documenation</h1>
+###0. Created the basic structure of the main project
 ###1. Refactoring Classes
 
 	1.0 Renaming classes
@@ -40,27 +41,44 @@
 		- Renamed randNumber to randomNumber in Balloons.cs
 		- Renamed tempByte to numberToInsert in Balloons.cs
 		- Renamed stek to columnValues in CheckIfWinner method
+		
+	3.2. Constants
+		- Added constants for:
+			- Global game messages
+			- Magic values
+			- Exception error messages
+			- UI Title header
+			- Scoreboard template
 	
-	3.2. Expressions
+	3.3. Control structures
 	
-	3.3. Constants
-	
-	3.4. Control structures
-	
-	3.5. Exceptions
-	
-	3.6. Comments
-		- Removed all comments from from Balloons.cs
-		- Removed all comments in StringExtensions.cs
-
-	3.7. StyleCop Refactoring
-		- Refactored all StyleCop errors in Balloons.cs
-		- Refactored all StyleCop errors in Highscore.cs
-		- Refactored all StyleCop errors in StringExtensions.cs
+	3.4. Exceptions
+		- Created appropriate exceptions for the project
+			- CannotBeNullException
+			- IntNotEqualOrGreaterThan
+			- NotPositiveIntegerException
+			- NotValidLenghtStringException
+	3.5. Comments
+		- Removed all inappropriate comments
+		
+	3.6. StyleCop Refactoring
+		- Refactored all StyleCop errors in the entire project
 ###4. Add Interfaces
-
-###5. Add Modules
-
-###6. Implement design patterns
-
-###7. Add new functionalities
+		- Added: 
+			- IEngine
+			- IPopStrategy
+			- IPrinter
+			- IReader
+			- ICommand
+###5. Implement design patterns
+		- Factory Method
+		- Strategy
+		- Facade
+###6. Add new functionalities
+		- UI
+		- Levels - different size of playfield
+		- Different strategies to pop balloons
+		- Coloring the balloons
+		- New exception for the project
+		- Validator
+		- Export data to txt file
