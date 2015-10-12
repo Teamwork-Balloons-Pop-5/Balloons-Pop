@@ -1,10 +1,9 @@
 ﻿namespace BalloonsPop.Console.ConsoleIO.Reader
 {
     using System;
-
-    using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
     using BalloonsPop.Common;
     using BalloonsPop.Common.Constants;
+    using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
 
     public class Reader : IReader
     {
@@ -40,9 +39,10 @@
             do
             {
                 username = Console.ReadLine();
-                isCorrect = Validator.IsStringLenghtValid(username,
-                                                          GlobalGameLogicDependencesValues.MinUsernameLength,
-                                                          GlobalGameLogicDependencesValues.MaxUsernameLength);
+                isCorrect = Validator.IsStringLenghtValid(
+                    username,
+                    GlobalGameLogicDependencesValues.MinUsernameLength,
+                    GlobalGameLogicDependencesValues.MaxUsernameLength);
             }
             while (!isCorrect);
 

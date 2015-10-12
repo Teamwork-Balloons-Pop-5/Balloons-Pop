@@ -11,8 +11,8 @@ namespace BalloonsPop.Console
     using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
     using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Console.ConsoleUI.Playfield;
-    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Engine;
+    using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
 

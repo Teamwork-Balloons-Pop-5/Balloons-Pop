@@ -1,19 +1,19 @@
 ﻿namespace BalloonsPop.Engine
 {
     using System;
+    using BalloonsPop.Common;
+    using BalloonsPop.Common.Constants;
     using BalloonsPop.Console.ConsoleIO;
+    using BalloonsPop.Console.ConsoleIO.Printer;
+    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
+    using BalloonsPop.Console.ConsoleIO.Reader;
+    using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
+    using BalloonsPop.Console.ConsoleUI.Colors;
+    using BalloonsPop.Console.ConsoleUI.Menu;
     using BalloonsPop.Console.ConsoleUI.Playfield;
     using BalloonsPop.Engine.Contracts;
     using BalloonsPop.Game.Logic;
     using Wintellect.PowerCollections;
-    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
-    using BalloonsPop.Console.ConsoleIO.Printer;
-    using BalloonsPop.Console.ConsoleIO.Reader.Contracts;
-    using BalloonsPop.Console.ConsoleIO.Reader;
-    using BalloonsPop.Console.ConsoleUI.Colors;
-    using BalloonsPop.Common.Constants;
-    using BalloonsPop.Common;
-    using BalloonsPop.Console.ConsoleUI.Menu;
 
     public class Engine : IEngine
     {
@@ -171,7 +171,7 @@
         {
             try
             {
-                var splittedUserInput = input.Trim().Split(new char[] {' ', ',', '.', '/'});
+                var splittedUserInput = input.Trim().Split(new char[] { ' ', ',', '.', '/' });
 
                 string row = splittedUserInput[0];
                 string column = splittedUserInput[1];
@@ -256,6 +256,5 @@
                 return false;
             }
         }
-
     }
 }

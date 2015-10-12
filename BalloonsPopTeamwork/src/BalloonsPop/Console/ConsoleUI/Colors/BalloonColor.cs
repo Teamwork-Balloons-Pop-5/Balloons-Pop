@@ -5,8 +5,8 @@
 
 namespace BalloonsPop.Console.ConsoleUI.Colors
 {
-    using BalloonsPop.Common.Enum;
     using System;
+    using BalloonsPop.Common.Enum;
 
     /// <summary>
     /// creates the BalloonColor holder for the balloons colours

@@ -1,7 +1,7 @@
 ﻿namespace BalloonsPop.Console.ConsoleIO.Printer
 {
-    using BalloonsPop.Common.Constants;
     using System;
+    using BalloonsPop.Common.Constants;
 
     public class MenuPrinter : Printer
     {
@@ -27,6 +27,16 @@
         public override void PrintTextLine(string text)
         {
             Console.WriteLine(string.Format("{0," + ((Console.WindowWidth / 2) + (text.Length / 2)) + "}", text));
+        }
+
+        // Finished
+        public override void Print(params object[] objs)
+        {
+            Console.Clear();
+            this.SetMenuSize();
+            this.PrintMenuHeader();
+            this.PrintMenuBody();
+            this.PrintMenuFooter();
         }
 
         // Finished
@@ -69,8 +79,9 @@
         // Finished
         private void SetMenuSize()
         {
-            Console.SetWindowSize(GlobalGameLogicDependencesValues.WindowWidth,
-                                  GlobalGameLogicDependencesValues.WindowHeight);
+            Console.SetWindowSize(
+                GlobalGameLogicDependencesValues.WindowWidth,
+                GlobalGameLogicDependencesValues.WindowHeight);
         }
 
         // Finished
@@ -95,16 +106,6 @@
                     this.PrintText(message);
                 }
             }
-        }
-
-        // Finished
-        public override void Print(params object[] objs)
-        {
-            Console.Clear();
-            this.SetMenuSize();
-            this.PrintMenuHeader();
-            this.PrintMenuBody();
-            this.PrintMenuFooter();
         }
     }
 }

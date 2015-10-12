@@ -1,9 +1,17 @@
-﻿namespace BalloonsPop.Console.ConsoleIO.Printer
+﻿// <copyright  file="PlayfieldPrinter.cs" company="Balloons-Pop-5">
+// All rights reserved.
+// </copyright>
+// <author>DimitarSD, alexizvely, fr0wsTyl</author>
+
+namespace BalloonsPop.Console.ConsoleIO.Printer
 {
+    using System;
     using BalloonsPop.Console.ConsoleUI.Colors;
     using BalloonsPop.Console.ConsoleUI.Playfield;
-    using System;
 
+    /// <summary>
+    /// creates printer for the playfield of the game
+    /// </summary>
     public class PlayfieldPrinter : Printer
     {
         // Finished

@@ -1,13 +1,12 @@
 ﻿namespace BalloonsPop.Console.ConsoleIO.Printer
 {
     using System;
-
-    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using System.Collections;
-    using BalloonsPop.Console.ConsoleUI.Playfield;
     using System.Text;
-    using Wintellect.PowerCollections;
+    using BalloonsPop.Console.ConsoleIO.Printer.Contracts;
     using BalloonsPop.Console.ConsoleUI.Colors;
+    using BalloonsPop.Console.ConsoleUI.Playfield;
+    using Wintellect.PowerCollections;
 
     public class MessagePrinter : IPrinter
     {
