@@ -17,38 +17,47 @@ namespace BalloonsPop.Console.ConsoleUI.Menu
         /// constant that holds the text for easy game mode
         /// </summary>
         private const string GameModeEasy = "1. EASY";
+
         /// <summary>
         /// constant that holds the text for medium game mode
         /// </summary>
         private const string GameModeMedium = "2. MEDIUM";
+
         /// <summary>
         /// constant that holds the text for hard game mode
         /// </summary>
         private const string GameModeHard = "3. HARD";
+
         /// <summary>
         /// constant that holds the text that welcomes the user into the game
         /// </summary>
         private const string WelcomeGameMessage = "Welcome to the game of Balloons Pop.";
+
         /// <summary>
         /// constant that holds the text that explains the goal of the game to the user
         /// </summary>
         private const string AimOfGameMessage = "The aim of the game is to pop all balloons.";
+
         /// <summary>
         /// constant that holds the text that serves as tutorial for the game
         /// </summary>
         private const string HowToPlayMessage = "To do this you enter balloon coordinates in a turn-by-turn basis.";
+
         /// <summary>
         /// constant that holds the text for choose game mode
         /// </summary>
         private const string ChooseGameModeMessage = "Please choose game mode";
+
         /// <summary>
         /// constant that holds empty text line
         /// </summary>
         private const string EmptyTextLine = "";
+
         /// <summary>
         /// constant that holds the top border with the caption of the game
         /// </summary>
         private const string BorderTop = GameTitle.GameTitleBorder + EmptyTextLine;
+
         /// <summary>
         /// constant that holds the bottom border with the caption of the game
         /// </summary>

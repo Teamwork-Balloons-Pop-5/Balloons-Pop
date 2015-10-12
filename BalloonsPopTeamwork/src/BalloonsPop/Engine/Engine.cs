@@ -34,7 +34,7 @@
 
         // ConsoleIO
         // private ConsoleOutput consoleOutput = new ConsoleOutput();
-        //private ConsoleInput consoleInput = new ConsoleInput();
+        // private ConsoleInput consoleInput = new ConsoleInput();
         private Menu menu = new Menu();
 
         private Engine()
@@ -85,7 +85,7 @@
         // Finished
         private Playfield InitializePlayfield()
         {
-            int playfieldSize = reader.ReadPlayfieldSize();
+            int playfieldSize = this.reader.ReadPlayfieldSize();
             bool isPlayfieldSizeCorrect = true;
 
             Playfield playfield = null;

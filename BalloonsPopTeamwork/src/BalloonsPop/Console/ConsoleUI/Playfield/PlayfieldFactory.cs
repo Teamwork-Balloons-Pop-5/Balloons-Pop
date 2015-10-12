@@ -5,13 +5,11 @@
 
 namespace BalloonsPop.Console.ConsoleUI.Playfield
 {
-
     /// <summary>
     ///     Abstract class for Playfield factory
     /// </summary>
     public abstract class PlayfieldFactory
     {
-
         /// <summary>
         /// Creates the playfield matrix with the balloons in it
         /// </summary>
