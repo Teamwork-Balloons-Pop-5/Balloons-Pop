@@ -15,7 +15,7 @@ namespace BalloonsPop.Console.ConsoleIO.Printer
     public class ScoreboardPrinter : Printer
     {
         /// <summary>
-        /// Prints
+        /// Prints text on the same line
         /// </summary>
         /// <param name="text">takes a string and prints it on the same line</param>
         public override void PrintText(string text)
@@ -24,7 +24,7 @@ namespace BalloonsPop.Console.ConsoleIO.Printer
         }
 
         /// <summary>
-        /// Prints
+        /// Prints text line
         /// </summary>
         /// <param name="text">takes a string and prints it on a separate line</param>
         public override void PrintTextLine(string text)
@@ -33,7 +33,7 @@ namespace BalloonsPop.Console.ConsoleIO.Printer
         }
       
         /// <summary>
-        /// Prints
+        /// Prints scoreboard
         /// </summary>
         /// <param name="arguments">takes object array and prints it</param>
         public override void Print(params object[] arguments)

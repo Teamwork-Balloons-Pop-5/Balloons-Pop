@@ -14,21 +14,31 @@ namespace BalloonsPop.Console.ConsoleIO.Printer
     /// </summary>
     public class PlayfieldPrinter : Printer
     {
-        // Finished
+        /// <summary>
+        /// Prints text on the same line
+        /// </summary>
+        /// <param name="text">takes a string and prints it on the same line</param>
         public override void PrintText(string text)
         {
             Console.Write(text);
         }
 
-        // Finished
+        /// <summary>
+        /// Prints a line
+        /// </summary>
+        /// <param name="text">takes a string and prints it on a separate line</param>
         public override void PrintTextLine(string text)
         {
             Console.WriteLine(text);
         }
 
-        // Need to refactor the code inside
+        /// <summary>
+        /// Prints an object array
+        /// </summary>
+        /// <param name="objs">takes object array and prints it</param>
         public override void Print(params object[] arguments)
         {
+            // TODO: Need to refactor the code inside
             var playfield = arguments[0] as Playfield;
             var colors = arguments[1] as BalloonColor;
 
@@ -72,7 +82,11 @@ namespace BalloonsPop.Console.ConsoleIO.Printer
             Console.WriteLine();
         }
 
-        // Finished
+        /// <summary>
+        /// Prints the border for the playfield
+        /// </summary>
+        /// <param name="width">int value that gives us the width of the playfield</param>
+        /// <param name="borderType">string that gives us what border will be printed</param>
         private void PrintPlayfieldHorizontalBorder(int width, string borderType)
         {
             for (byte column = 0; column < (width * 2) + 1; column++)

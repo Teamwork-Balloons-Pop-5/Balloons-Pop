@@ -2,7 +2,7 @@
 {
     using BalloonsPop.Game.Commands.Contracts;
 
-    public class SaveCommand : Command
+    public class SaveCommand : ICommand
     {
         public override void Execute()
         {
